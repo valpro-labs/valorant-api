@@ -33,18 +33,9 @@ const GameModeSchema = z.object({
   listViewIconTall: z.string().nullable().optional(),
   assetPath: z.string(),
 });
+const GameModesSchema = z.array(GameModeSchema);
 
-const GameModesSchema = z.object({
-  status: z.number(),
-  data: z.array(GameModeSchema),
-});
-
-const GameModeResponseSchema = z.object({
-  status: z.number(),
-  data: GameModeSchema,
-});
-
-export type GameModeResponse = z.infer<typeof GameModeResponseSchema>;
+export type GameModeResponse = z.infer<typeof GameModeSchema>;
 export type GameModesResponse = z.infer<typeof GameModesSchema>;
 
 class GameModesEndpoints extends BaseEndpoint {
