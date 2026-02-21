@@ -52,4 +52,6 @@ class ValorantApi {
   }
 }
 
+export { ValorantLocale, ValorantApiConfig } from './endpoints/BaseEndpoint';
+
 export { ValorantApi };
