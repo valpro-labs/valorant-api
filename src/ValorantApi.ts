@@ -14,6 +14,7 @@ import { LevelBordersEndpoints } from './endpoints/LevelBordersEndpoints';
 import { BuddiesEndpoints } from './endpoints/BuddiesEndpoints';
 import { SpraysEndpoints } from './endpoints/SpraysEndpoints';
 import { CompetitiveTiersEndpoints } from './endpoints/CompetitiveTiersEndpoints';
+import { FlexEndpoints } from './endpoints/FlexEndpoints';
 
 class ValorantApi {
   public versionEndpoint: VersionEndpoint;
@@ -31,6 +32,7 @@ class ValorantApi {
   public buddiesEndpoints: BuddiesEndpoints;
   public spraysEndpoints: SpraysEndpoints;
   public competitiveTiersEndpoints: CompetitiveTiersEndpoints;
+  public flexEndpoints: FlexEndpoints;
 
   constructor(config?: ValorantApiConfig) {
     this.versionEndpoint = new VersionEndpoint(config);
@@ -48,6 +50,7 @@ class ValorantApi {
     this.buddiesEndpoints = new BuddiesEndpoints(config);
     this.spraysEndpoints = new SpraysEndpoints(config);
     this.competitiveTiersEndpoints = new CompetitiveTiersEndpoints(config);
+    this.flexEndpoints = new FlexEndpoints(config);
   }
 }
 

@@ -7,6 +7,7 @@ export * from './endpoints/BundlesEndpoints';
 export * from './endpoints/CompetitiveTiersEndpoints';
 export * from './endpoints/ContentTierEndpoints';
 export * from './endpoints/CurrenciesEndpoints';
+export * from './endpoints/FlexEndpoints';
 export * from './endpoints/LevelBordersEndpoints';
 export * from './endpoints/MapsEndpoints';
 export * from './endpoints/MissionsEndpoints';
