@@ -1,0 +1,28 @@
+import { z } from 'zod';
+
+import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
+
+const versionEndpoint = z.object({
+  manifestId: z.string(),
+  branch: z.string(),
+  version: z.string(),
+  buildVersion: z.string(),
+  engineVersion: z.string(),
+  riotClientVersion: z.string(),
+  riotClientBuild: z.string(),
+  buildDate: z.string().datetime().pipe(z.coerce.date()),
+});
+
+type VersionResponse = z.infer<typeof versionEndpoint>;
+
+class VersionEndpoint extends BaseEndpoint {
+  constructor(config?: ValorantApiConfig) {
+    super(config);
+  }
+
+  public async getVersionV1(): Promise<VersionResponse> {
+    return this.requestValorantApi<VersionResponse>('https://valorant-api.com/v1/version');
+  }
+}
+
+export { VersionEndpoint };
