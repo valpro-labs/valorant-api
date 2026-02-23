@@ -13,7 +13,7 @@ const versionEndpoint = z.object({
   buildDate: z.string().datetime().pipe(z.coerce.date()),
 });
 
-type VersionResponse = z.infer<typeof versionEndpoint>;
+export type VersionResponse = z.infer<typeof versionEndpoint>;
 
 class VersionEndpoint extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {
