@@ -19,3 +19,5 @@ export * from './endpoints/VersionEndpoint';
 export * from './endpoints/WeaponsEndpoints';
 export * from './endpoints/GameModesEndpoints';
 export * from './endpoints/ContractsEndpoints';
+export * from './endpoints/EventsEndpoints';
+
