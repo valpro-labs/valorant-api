@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const ContentTierSchema = z.object({
+export const ContentTierSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   devName: z.string(),
@@ -14,7 +14,7 @@ const ContentTierSchema = z.object({
   assetPath: z.string(),
 });
 
-const ContentTiersSchema = z.array(ContentTierSchema);
+export const ContentTiersSchema = z.array(ContentTierSchema);
 
 export type ContentTierResponse = z.infer<typeof ContentTierSchema>;
 export type ContentTiersResponse = z.infer<typeof ContentTiersSchema>;

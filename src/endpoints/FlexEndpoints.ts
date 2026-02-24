@@ -1,10 +1,9 @@
 import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
+import { LocalizedStringSchema } from '../schemas/SharedSchemas';
 
-const LocalizedStringSchema = z.string();
-
-const FlexSchema = z.object({
+export const FlexSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   displayNameAllCaps: LocalizedStringSchema,
@@ -12,7 +11,7 @@ const FlexSchema = z.object({
   assetPath: z.string(),
 });
 
-const FlexsSchema = z.array(FlexSchema);
+export const FlexsSchema = z.array(FlexSchema);
 
 export type FlexResponse = z.infer<typeof FlexSchema>;
 export type FlexsResponse = z.infer<typeof FlexsSchema>;

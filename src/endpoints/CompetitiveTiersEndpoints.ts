@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const TierSchema = z.object({
+export const TierSchema = z.object({
   tier: z.number().int(),
   tierName: z.string(),
   division: z.string(),
@@ -15,14 +15,14 @@ const TierSchema = z.object({
   rankTriangleUpIcon: z.string().nullable(),
 });
 
-const CompetitiveTierSetSchema = z.object({
+export const CompetitiveTierSetSchema = z.object({
   uuid: z.string().uuid(),
   assetObjectName: z.string(),
   tiers: z.array(TierSchema),
   assetPath: z.string(),
 });
 
-const CompetitiveTiersSchema = z.array(CompetitiveTierSetSchema);
+export const CompetitiveTiersSchema = z.array(CompetitiveTierSetSchema);
 
 export type TierResponse = z.infer<typeof TierSchema>;
 export type CompetitiveTierSetResponse = z.infer<typeof CompetitiveTierSetSchema>;

@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const PlayerTitleSchema = z.object({
+export const PlayerTitleSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   titleText: z.string(),
@@ -10,7 +10,7 @@ const PlayerTitleSchema = z.object({
   assetPath: z.string(),
 });
 
-const PlayerTitlesSchema = z.array(PlayerTitleSchema);
+export const PlayerTitlesSchema = z.array(PlayerTitleSchema);
 
 export type PlayerTitleResponse = z.infer<typeof PlayerTitleSchema>;
 export type PlayerTitlesResponse = z.infer<typeof PlayerTitlesSchema>;

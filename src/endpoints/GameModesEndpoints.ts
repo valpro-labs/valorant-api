@@ -1,20 +1,21 @@
 import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
+import { LocalizedStringSchema } from '../schemas/SharedSchemas';
 
-const LocalizedStringSchema = z.string();
-
-const GameFeatureOverrideSchema = z.object({
+export const GameFeatureOverrideSchema = z.object({
   featureName: z.string(),
   state: z.boolean(),
 });
+export type GameFeatureOverrideResponse = z.infer<typeof GameFeatureOverrideSchema>;
 
-const GameRuleBoolOverrideSchema = z.object({
+export const GameRuleBoolOverrideSchema = z.object({
   ruleName: z.string(),
   state: z.boolean(),
 });
+export type GameRuleBoolOverrideResponse = z.infer<typeof GameRuleBoolOverrideSchema>;
 
-const GameModeSchema = z.object({
+export const GameModeSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   description: LocalizedStringSchema.nullable(),
@@ -33,7 +34,7 @@ const GameModeSchema = z.object({
   listViewIconTall: z.string().nullable().optional(),
   assetPath: z.string(),
 });
-const GameModesSchema = z.array(GameModeSchema);
+export const GameModesSchema = z.array(GameModeSchema);
 
 export type GameModeResponse = z.infer<typeof GameModeSchema>;
 export type GameModesResponse = z.infer<typeof GameModesSchema>;

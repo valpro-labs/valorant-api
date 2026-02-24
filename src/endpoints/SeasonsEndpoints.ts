@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const SeasonSchema = z.object({
+export const SeasonSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   title: z.string().optional().nullable(),
@@ -13,7 +13,7 @@ const SeasonSchema = z.object({
   assetPath: z.string(),
 });
 
-const SeasonsSchema = z.array(SeasonSchema);
+export const SeasonsSchema = z.array(SeasonSchema);
 
 export type SeasonResponse = z.infer<typeof SeasonSchema>;
 export type SeasonsResponse = z.infer<typeof SeasonsSchema>;

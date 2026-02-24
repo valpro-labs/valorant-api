@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const PlayerCardSchema = z.object({
+export const PlayerCardSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   isHiddenIfNotOwned: z.boolean(),
@@ -14,7 +14,7 @@ const PlayerCardSchema = z.object({
   assetPath: z.string(),
 });
 
-const PlayerCardsSchema = z.array(PlayerCardSchema);
+export const PlayerCardsSchema = z.array(PlayerCardSchema);
 
 export type PlayerCardResponse = z.infer<typeof PlayerCardSchema>;
 export type PlayerCardsResponse = z.infer<typeof PlayerCardsSchema>;

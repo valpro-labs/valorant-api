@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const BundleSchema = z.object({
+export const BundleSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   displayNameSubtext: z.string(),
@@ -16,7 +16,7 @@ const BundleSchema = z.object({
   assetPath: z.string(),
 });
 
-const BundlesSchema = z.array(BundleSchema);
+export const BundlesSchema = z.array(BundleSchema);
 
 export type BundleResponse = z.infer<typeof BundleSchema>;
 export type BundlesResponse = z.infer<typeof BundlesSchema>;

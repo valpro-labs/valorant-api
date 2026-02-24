@@ -1,28 +1,30 @@
 import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
+import { LocalizedStringSchema } from '../schemas/SharedSchemas';
 
-const LocalizedStringSchema = z.string();
-
-const LocationSchema = z.object({
+export const LocationSchema = z.object({
   x: z.number(),
   y: z.number(),
   z: z.number(),
 });
+export type LocationResponse = z.infer<typeof LocationSchema>;
 
-const Scale3DSchema = z.object({
+export const Scale3DSchema = z.object({
   x: z.number(),
   y: z.number(),
   z: z.number(),
 });
+export type Scale3DResponse = z.infer<typeof Scale3DSchema>;
 
-const RotationSchema = z.object({
+export const RotationSchema = z.object({
   pitch: z.number(),
   yaw: z.number(),
   roll: z.number(),
 });
+export type RotationResponse = z.infer<typeof RotationSchema>;
 
-const CalloutSchema = z.object({
+export const CalloutSchema = z.object({
   regionName: LocalizedStringSchema,
   superRegion: z.string(),
   superRegionName: LocalizedStringSchema,
@@ -30,8 +32,9 @@ const CalloutSchema = z.object({
   scale3D: Scale3DSchema,
   rotation: RotationSchema,
 });
+export type CalloutResponse = z.infer<typeof CalloutSchema>;
 
-const MapSchema = z.object({
+export const MapSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   narrativeDescription: LocalizedStringSchema,
@@ -52,7 +55,7 @@ const MapSchema = z.object({
   callouts: z.array(CalloutSchema),
 });
 
-const MapsSchema = z.array(MapSchema);
+export const MapsSchema = z.array(MapSchema);
 
 export type MapResponse = z.infer<typeof MapSchema>;
 export type MapsResponse = z.infer<typeof MapsSchema>;

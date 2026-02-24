@@ -21,4 +21,5 @@ export * from './endpoints/GameModesEndpoints';
 export * from './endpoints/ContractsEndpoints';
 export * from './endpoints/EventsEndpoints';
 export * from './endpoints/SeasonsEndpoints';
+export * from './schemas/SharedSchemas';
 

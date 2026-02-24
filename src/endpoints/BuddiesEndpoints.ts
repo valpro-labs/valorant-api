@@ -2,14 +2,14 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const BuddyLevelSchema = z.object({
+export const BuddyLevelSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   displayIcon: z.string(),
   assetPath: z.string(),
 });
 
-const BuddySchema = z.object({
+export const BuddySchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   isHiddenIfNotOwned: z.boolean(),
@@ -19,8 +19,8 @@ const BuddySchema = z.object({
   levels: z.array(BuddyLevelSchema),
 });
 
-const BuddiesSchema = z.array(BuddySchema);
-const BuddyLevelsSchema = z.array(BuddyLevelSchema);
+export const BuddiesSchema = z.array(BuddySchema);
+export const BuddyLevelsSchema = z.array(BuddyLevelSchema);
 
 export type BuddyResponse = z.infer<typeof BuddySchema>;
 export type BuddiesResponse = z.infer<typeof BuddiesSchema>;

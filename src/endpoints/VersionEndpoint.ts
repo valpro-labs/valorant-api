@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const versionEndpoint = z.object({
+export const VersionSchema = z.object({
   manifestId: z.string(),
   branch: z.string(),
   version: z.string(),
@@ -13,7 +13,7 @@ const versionEndpoint = z.object({
   buildDate: z.string().datetime().pipe(z.coerce.date()),
 });
 
-export type VersionResponse = z.infer<typeof versionEndpoint>;
+export type VersionResponse = z.infer<typeof VersionSchema>;
 
 class VersionEndpoint extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {

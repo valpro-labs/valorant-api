@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const EventSchema = z.object({
+export const EventSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   shortDisplayName: z.string(),
@@ -11,7 +11,7 @@ const EventSchema = z.object({
   assetPath: z.string(),
 });
 
-const EventsSchema = z.array(EventSchema);
+export const EventsSchema = z.array(EventSchema);
 
 export type EventResponse = z.infer<typeof EventSchema>;
 export type EventsResponse = z.infer<typeof EventsSchema>;

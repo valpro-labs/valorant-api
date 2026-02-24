@@ -2,13 +2,13 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const ObjectiveSchema = z.object({
+export const ObjectiveSchema = z.object({
   uuid: z.string().uuid(),
   directive: z.string(),
   assetPath: z.string(),
 });
 
-const ObjectivesSchema = z.array(ObjectiveSchema);
+export const ObjectivesSchema = z.array(ObjectiveSchema);
 
 export type ObjectiveResponse = z.infer<typeof ObjectiveSchema>;
 export type ObjectivesResponse = z.infer<typeof ObjectivesSchema>;

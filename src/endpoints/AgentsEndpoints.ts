@@ -1,30 +1,32 @@
 import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
+import { LocalizedStringSchema } from '../schemas/SharedSchemas';
 
-const LocalizedStringSchema = z.string();
-
-const VoiceLineMediaSchema = z.object({
+export const VoiceLineMediaSchema = z.object({
   id: z.number().int(),
   wwise: z.string(),
   wave: z.string(),
 });
+export type VoiceLineMediaResponse = z.infer<typeof VoiceLineMediaSchema>;
 
-const VoiceLineSchema = z.object({
+export const VoiceLineSchema = z.object({
   minDuration: z.number(),
   maxDuration: z.number(),
   mediaList: z.array(VoiceLineMediaSchema),
 });
+export type VoiceLineResponse = z.infer<typeof VoiceLineSchema>;
 
-const AbilitySchema = z.object({
+export const AbilitySchema = z.object({
   slot: z.string(),
   displayName: LocalizedStringSchema,
   description: LocalizedStringSchema,
   displayIcon: z.string(),
   voiceLine: VoiceLineSchema,
 });
+export type AbilityResponse = z.infer<typeof AbilitySchema>;
 
-const RoleSchema = z.object({
+export const RoleSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   description: LocalizedStringSchema,
@@ -32,7 +34,7 @@ const RoleSchema = z.object({
   assetPath: z.string(),
 });
 
-const RecruitmentDataSchema = z.object({
+export const RecruitmentDataSchema = z.object({
   counterId: z.string().uuid(),
   milestoneId: z.string().uuid(),
   milestoneThreshold: z.number().int(),
@@ -41,8 +43,9 @@ const RecruitmentDataSchema = z.object({
   startDate: z.string().datetime(),
   endDate: z.string().datetime(),
 });
+export type RecruitmentDataResponse = z.infer<typeof RecruitmentDataSchema>;
 
-const AgentSchema = z.object({
+export const AgentSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   description: LocalizedStringSchema,
@@ -68,7 +71,7 @@ const AgentSchema = z.object({
   recruitmentData: RecruitmentDataSchema,
   abilities: z.array(AbilitySchema),
 });
-const AgentsSchema = z.array(AgentSchema);
+export const AgentsSchema = z.array(AgentSchema);
 
 export type RoleResponse = z.infer<typeof RoleSchema>;
 export type AgentResponse = z.infer<typeof AgentSchema>;

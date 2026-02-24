@@ -1,36 +1,39 @@
 import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
+import { LocalizedStringSchema } from '../schemas/SharedSchemas';
 
-const LocalizedStringSchema = z.string();
-
-const AdsStatsSchema = z.object({
+export const AdsStatsSchema = z.object({
   zoomMultiplier: z.number(),
   fireRate: z.number(),
   runSpeedMultiplier: z.number(),
   burstCount: z.number().int(),
   firstBulletAccuracy: z.number(),
 });
+export type AdsStatsResponse = z.infer<typeof AdsStatsSchema>;
 
-const AltShotgunStatsSchema = z.object({
+export const AltShotgunStatsSchema = z.object({
   shotgunPelletCount: z.number().int(),
   burstRate: z.number(),
 });
+export type AltShotgunStatsResponse = z.infer<typeof AltShotgunStatsSchema>;
 
-const AirBurstStatsSchema = z.object({
+export const AirBurstStatsSchema = z.object({
   shotgunPelletCount: z.number().int(),
   burstDistance: z.number(),
 });
+export type AirBurstStatsResponse = z.infer<typeof AirBurstStatsSchema>;
 
-const DamageRangeSchema = z.object({
+export const DamageRangeSchema = z.object({
   rangeStartMeters: z.number(),
   rangeEndMeters: z.number(),
   headDamage: z.number(),
   bodyDamage: z.number(),
   legDamage: z.number(),
 });
+export type DamageRangeResponse = z.infer<typeof DamageRangeSchema>;
 
-const WeaponStatsSchema = z.object({
+export const WeaponStatsSchema = z.object({
   fireRate: z.number(),
   magazineSize: z.number().int(),
   runSpeedMultiplier: z.number(),
@@ -47,13 +50,15 @@ const WeaponStatsSchema = z.object({
   airBurstStats: AirBurstStatsSchema,
   damageRanges: z.array(DamageRangeSchema),
 });
+export type WeaponStatsResponse = z.infer<typeof WeaponStatsSchema>;
 
-const GridPositionSchema = z.object({
+export const GridPositionSchema = z.object({
   row: z.number().int(),
   column: z.number().int(),
 });
+export type GridPositionResponse = z.infer<typeof GridPositionSchema>;
 
-const ShopDataSchema = z.object({
+export const ShopDataSchema = z.object({
   cost: z.number().int(),
   category: z.string(),
   shopOrderPriority: z.number().int(),
@@ -65,8 +70,9 @@ const ShopDataSchema = z.object({
   newImage2: z.string(),
   assetPath: z.string(),
 });
+export type ShopDataResponse = z.infer<typeof ShopDataSchema>;
 
-const ChromaSchema = z.object({
+export const ChromaSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   displayIcon: z.string(),
@@ -75,8 +81,9 @@ const ChromaSchema = z.object({
   streamedVideo: z.string(),
   assetPath: z.string(),
 });
+export type ChromaResponse = z.infer<typeof ChromaSchema>;
 
-const LevelSchema = z.object({
+export const LevelSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   levelItem: z.string(),
@@ -84,8 +91,9 @@ const LevelSchema = z.object({
   streamedVideo: z.string(),
   assetPath: z.string(),
 });
+export type LevelResponse = z.infer<typeof LevelSchema>;
 
-const SkinSchema = z.object({
+export const SkinSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   themeUuid: z.string().uuid(),
@@ -96,8 +104,9 @@ const SkinSchema = z.object({
   chromas: z.array(ChromaSchema),
   levels: z.array(LevelSchema),
 });
+export type SkinResponse = z.infer<typeof SkinSchema>;
 
-const WeaponSchema = z.object({
+export const WeaponSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
   category: z.string(),
@@ -110,7 +119,7 @@ const WeaponSchema = z.object({
   skins: z.array(SkinSchema),
 });
 
-const WeaponsSchema = z.array(WeaponSchema);
+export const WeaponsSchema = z.array(WeaponSchema);
 
 export type WeaponResponse = z.infer<typeof WeaponSchema>;
 export type WeaponsResponse = z.infer<typeof WeaponsSchema>;

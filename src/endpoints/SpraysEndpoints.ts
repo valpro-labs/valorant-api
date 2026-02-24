@@ -2,15 +2,16 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const SprayLevelSchema = z.object({
+export const SprayLevelSchema = z.object({
   uuid: z.string().uuid(),
   sprayUuid: z.string().uuid(),
   displayName: z.string(),
   displayIcon: z.string().nullable(),
   assetPath: z.string(),
 });
+export type SprayLevelResponse = z.infer<typeof SprayLevelSchema>;
 
-const SpraySchema = z.object({
+export const SpraySchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   category: z.string().nullable(),
@@ -25,7 +26,7 @@ const SpraySchema = z.object({
   levels: z.array(SprayLevelSchema),
 });
 
-const SpraysSchema = z.array(SpraySchema);
+export const SpraysSchema = z.array(SpraySchema);
 
 export type SprayResponse = z.infer<typeof SpraySchema>;
 export type SpraysResponse = z.infer<typeof SpraysSchema>;

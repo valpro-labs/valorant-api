@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-const CurrencySchema = z.object({
+export const CurrencySchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
   displayNameSingular: z.string(),
@@ -12,7 +12,7 @@ const CurrencySchema = z.object({
   assetPath: z.string(),
 });
 
-const CurrenciesSchema = z.array(CurrencySchema);
+export const CurrenciesSchema = z.array(CurrencySchema);
 
 export type CurrencyResponse = z.infer<typeof CurrencySchema>;
 export type CurrenciesResponse = z.infer<typeof CurrenciesSchema>;
