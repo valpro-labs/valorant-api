@@ -1,5 +1,5 @@
 {
-  "name": "valorant-api",
+  "name": "@valpro-labs/valorant-api",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
