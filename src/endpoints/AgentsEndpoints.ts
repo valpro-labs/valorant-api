@@ -8,10 +8,12 @@ class AgentsEndpoints extends BaseEndpoint {
   }
 
   public async getAgentsV1(isPlayableCharacter: boolean = true): Promise<AgentsResponse> {
-    const url = new URL('v1/agents', 'https://valorant-api.com/')
-    url.searchParams.set('isPlayableCharacter', isPlayableCharacter.toString());
+    let endpointUrl = 'v1/agents';
+    if (isPlayableCharacter) {
+      endpointUrl += '?isPlayableCharacter=true'
+    }
 
-    return this.requestValorantApi<AgentsResponse>(url.toString());
+    return this.requestValorantApi<AgentsResponse>(endpointUrl);
   }
 
   public async getAgentsByUuidV1(uuid: string): Promise<AgentResponse> {
