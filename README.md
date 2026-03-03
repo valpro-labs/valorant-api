@@ -1,5 +1,7 @@
 # Valorant-API (unofficial)
 
+[![npm](https://img.shields.io/npm/v/@valpro-labs/valorant-api.svg)](https://www.npmjs.com/package/@valpro-labs/valorant-api)
+
 A typed TypeScript client for [valorant-api.com](https://valorant-api.com/). This library provides easy access to Valorant game data with full TypeScript support.
 
 ## Features
