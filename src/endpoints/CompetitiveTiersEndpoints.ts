@@ -34,11 +34,11 @@ class CompetitiveTiersEndpoints extends BaseEndpoint {
   }
 
   public async getCompetitiveTiersV1(): Promise<CompetitiveTiersResponse> {
-    return this.requestValorantApi<CompetitiveTiersResponse>('https://valorant-api.com/v1/competitivetiers');
+    return this.requestValorantApi<CompetitiveTiersResponse>('v1/competitivetiers');
   }
 
   public async getCompetitiveTiersByUuidV1(uuid: string): Promise<CompetitiveTierSetResponse> {
-    return this.requestValorantApi<CompetitiveTierSetResponse>(`https://valorant-api.com/v1/competitivetiers/${uuid}`);
+    return this.requestValorantApi<CompetitiveTierSetResponse>(`v1/competitivetiers/${uuid}`);
   }
 }
 

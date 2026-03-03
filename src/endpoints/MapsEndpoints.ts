@@ -66,11 +66,11 @@ class MapsEndpoints extends BaseEndpoint {
   }
 
   public async getMapsV1(): Promise<MapsResponse> {
-    return this.requestValorantApi<MapsResponse>('https://valorant-api.com/v1/maps');
+    return this.requestValorantApi<MapsResponse>('v1/maps');
   }
 
   public async getMapByUuidV1(uuid: string): Promise<MapResponse> {
-    return this.requestValorantApi<MapResponse>(`https://valorant-api.com/v1/maps/${uuid}`);
+    return this.requestValorantApi<MapResponse>(`v1/maps/${uuid}`);
   }
 }
 

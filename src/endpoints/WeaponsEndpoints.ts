@@ -130,11 +130,11 @@ class WeaponsEndpoints extends BaseEndpoint {
   }
 
   public async getWeaponsV1(): Promise<WeaponsResponse> {
-    return this.requestValorantApi<WeaponsResponse>('https://valorant-api.com/v1/weapons');
+    return this.requestValorantApi<WeaponsResponse>('v1/weapons');
   }
 
   public async getWeaponByUuidV1(uuid: string): Promise<WeaponResponse> {
-    return this.requestValorantApi<WeaponResponse>(`https://valorant-api.com/v1/weapons/${uuid}`);
+    return this.requestValorantApi<WeaponResponse>(`v1/weapons/${uuid}`);
   }
 }
 

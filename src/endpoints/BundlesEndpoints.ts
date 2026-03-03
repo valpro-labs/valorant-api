@@ -27,11 +27,11 @@ class BundlesEndpoints extends BaseEndpoint {
   }
 
   public async getBundlesV1(): Promise<BundlesResponse> {
-    return this.requestValorantApi<BundlesResponse>('https://valorant-api.com/v1/bundles');
+    return this.requestValorantApi<BundlesResponse>('v1/bundles');
   }
 
   public async getBundleByUuidV1(uuid: string): Promise<BundleResponse> {
-    return this.requestValorantApi<BundleResponse>(`https://valorant-api.com/v1/bundles/${uuid}`);
+    return this.requestValorantApi<BundleResponse>(`v1/bundles/${uuid}`);
   }
 }
 

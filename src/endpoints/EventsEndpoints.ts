@@ -26,7 +26,7 @@ class EventsEndpoints extends BaseEndpoint {
    * @returns Promise<EventsResponse>
    */
   public async getEventsV1(): Promise<EventsResponse> {
-    return this.requestValorantApi<EventsResponse>('https://valorant-api.com/v1/events');
+    return this.requestValorantApi<EventsResponse>('v1/events');
   }
 
   /**
@@ -35,7 +35,7 @@ class EventsEndpoints extends BaseEndpoint {
    * @returns Promise<EventResponse>
    */
   public async getEventByUuidV1(uuid: string): Promise<EventResponse> {
-    return this.requestValorantApi<EventResponse>(`https://valorant-api.com/v1/events/${uuid}`);
+    return this.requestValorantApi<EventResponse>(`v1/events/${uuid}`);
   }
 }
 

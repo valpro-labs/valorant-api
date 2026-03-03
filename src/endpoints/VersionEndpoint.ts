@@ -21,7 +21,7 @@ class VersionEndpoint extends BaseEndpoint {
   }
 
   public async getVersionV1(): Promise<VersionResponse> {
-    return this.requestValorantApi<VersionResponse>('https://valorant-api.com/v1/version');
+    return this.requestValorantApi<VersionResponse>('v1/version');
   }
 }
 

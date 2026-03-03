@@ -23,7 +23,9 @@ class BaseEndpoint {
   }
 
   public async requestValorantApi<T>(endpointUrl: string): Promise<T> {
-    const url = new URL(endpointUrl);
+    const baseUrl = 'https://valorant-api.com/';
+
+    const url = new URL(endpointUrl, baseUrl);
     url.searchParams.set('language', this.language);
 
     const result = await axios.get<ValorantApiResponse<T>>(url.toString());

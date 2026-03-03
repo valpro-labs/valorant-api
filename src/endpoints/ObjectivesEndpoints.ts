@@ -19,11 +19,11 @@ class ObjectivesEndpoints extends BaseEndpoint {
   }
 
   public async getObjectivesV1(): Promise<ObjectivesResponse> {
-    return this.requestValorantApi<ObjectivesResponse>('https://valorant-api.com/v1/objectives');
+    return this.requestValorantApi<ObjectivesResponse>('v1/objectives');
   }
 
   public async getObjectiveByUuidV1(uuid: string): Promise<ObjectiveResponse> {
-    return this.requestValorantApi<ObjectiveResponse>(`https://valorant-api.com/v1/objectives/${uuid}`);
+    return this.requestValorantApi<ObjectiveResponse>(`v1/objectives/${uuid}`);
   }
 }
 

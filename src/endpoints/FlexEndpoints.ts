@@ -22,11 +22,11 @@ class FlexEndpoints extends BaseEndpoint {
   }
 
   public async getFlexV1(): Promise<FlexsResponse> {
-    return this.requestValorantApi<FlexsResponse>('https://valorant-api.com/v1/flex');
+    return this.requestValorantApi<FlexsResponse>('v1/flex');
   }
 
   public async getFlexByUuidV1(uuid: string): Promise<FlexResponse> {
-    return this.requestValorantApi<FlexResponse>(`https://valorant-api.com/v1/flex/${uuid}`);
+    return this.requestValorantApi<FlexResponse>(`v1/flex/${uuid}`);
   }
 }
 

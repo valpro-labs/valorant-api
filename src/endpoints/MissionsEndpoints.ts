@@ -32,11 +32,11 @@ class MissionsEndpoints extends BaseEndpoint {
   }
 
   public async getMissionsV1(): Promise<MissionsResponse> {
-    return this.requestValorantApi<MissionsResponse>('https://valorant-api.com/v1/missions');
+    return this.requestValorantApi<MissionsResponse>('v1/missions');
   }
 
   public async getMissionByUuidV1(uuid: string): Promise<MissionResponse> {
-    return this.requestValorantApi<MissionResponse>(`https://valorant-api.com/v1/missions/${uuid}`);
+    return this.requestValorantApi<MissionResponse>(`v1/missions/${uuid}`);
   }
 }
 

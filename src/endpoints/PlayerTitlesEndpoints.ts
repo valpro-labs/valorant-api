@@ -21,11 +21,11 @@ class PlayerTitlesEndpoints extends BaseEndpoint {
   }
 
   public async getPlayerTitlesV1(): Promise<PlayerTitlesResponse> {
-    return this.requestValorantApi<PlayerTitlesResponse>('https://valorant-api.com/v1/playertitles');
+    return this.requestValorantApi<PlayerTitlesResponse>('v1/playertitles');
   }
 
   public async getPlayerTitleByUuidV1(uuid: string): Promise<PlayerTitleResponse> {
-    return this.requestValorantApi<PlayerTitleResponse>(`https://valorant-api.com/v1/playertitles/${uuid}`);
+    return this.requestValorantApi<PlayerTitleResponse>(`v1/playertitles/${uuid}`);
   }
 }
 

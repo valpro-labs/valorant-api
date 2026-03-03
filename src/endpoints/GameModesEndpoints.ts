@@ -45,11 +45,11 @@ class GameModesEndpoints extends BaseEndpoint {
   }
 
   public async getGameModesV1(): Promise<GameModesResponse> {
-    return this.requestValorantApi<GameModesResponse>('https://valorant-api.com/v1/gamemodes');
+    return this.requestValorantApi<GameModesResponse>('v1/gamemodes');
   }
 
   public async getGameModeByUuidV1(uuid: string): Promise<GameModeResponse> {
-    return this.requestValorantApi<GameModeResponse>(`https://valorant-api.com/v1/gamemodes/${uuid}`);
+    return this.requestValorantApi<GameModeResponse>(`v1/gamemodes/${uuid}`);
   }
 }
 

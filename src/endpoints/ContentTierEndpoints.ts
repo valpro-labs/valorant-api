@@ -25,11 +25,11 @@ class ContentTierEndpoints extends BaseEndpoint {
   }
 
   public async getContentTiersV1(): Promise<ContentTiersResponse> {
-    return this.requestValorantApi<ContentTiersResponse>('https://valorant-api.com/v1/contenttiers');
+    return this.requestValorantApi<ContentTiersResponse>('v1/contenttiers');
   }
 
   public async getContentTierByUuidV1(uuid: string): Promise<ContentTierResponse> {
-    return this.requestValorantApi<ContentTierResponse>(`https://valorant-api.com/v1/contenttiers/${uuid}`);
+    return this.requestValorantApi<ContentTierResponse>(`v1/contenttiers/${uuid}`);
   }
 }
 

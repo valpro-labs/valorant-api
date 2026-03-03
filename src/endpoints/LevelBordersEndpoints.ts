@@ -23,11 +23,11 @@ class LevelBordersEndpoints extends BaseEndpoint {
   }
 
   public async getLevelBordersV1(): Promise<LevelBordersResponse> {
-    return this.requestValorantApi<LevelBordersResponse>('https://valorant-api.com/v1/levelborders');
+    return this.requestValorantApi<LevelBordersResponse>('v1/levelborders');
   }
 
   public async getLevelBorderByUuidV1(uuid: string): Promise<LevelBorderResponse> {
-    return this.requestValorantApi<LevelBorderResponse>(`https://valorant-api.com/v1/levelborders/${uuid}`);
+    return this.requestValorantApi<LevelBorderResponse>(`v1/levelborders/${uuid}`);
   }
 }
 

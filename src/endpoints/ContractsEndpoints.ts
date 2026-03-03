@@ -64,7 +64,7 @@ class ContractsEndpoints extends BaseEndpoint {
    * @returns Promise<ContractsResponse>
    */
   public async getContractsV1(): Promise<ContractsResponse> {
-    return this.requestValorantApi<ContractsResponse>('https://valorant-api.com/v1/contracts');
+    return this.requestValorantApi<ContractsResponse>('v1/contracts');
   }
 
   /**
@@ -73,7 +73,7 @@ class ContractsEndpoints extends BaseEndpoint {
    * @returns Promise<ContractResponse>
    */
   public async getContractByUuidV1(uuid: string): Promise<ContractResponse> {
-    return this.requestValorantApi<ContractResponse>(`https://valorant-api.com/v1/contracts/${uuid}`);
+    return this.requestValorantApi<ContractResponse>(`v1/contracts/${uuid}`);
   }
 }
 

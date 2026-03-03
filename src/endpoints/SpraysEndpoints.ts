@@ -37,11 +37,11 @@ class SpraysEndpoints extends BaseEndpoint {
   }
 
   public async getSpraysV1(): Promise<SpraysResponse> {
-    return this.requestValorantApi<SpraysResponse>('https://valorant-api.com/v1/sprays');
+    return this.requestValorantApi<SpraysResponse>('v1/sprays');
   }
 
   public async getSprayByUuidV1(uuid: string): Promise<SprayResponse> {
-    return this.requestValorantApi<SprayResponse>(`https://valorant-api.com/v1/sprays/${uuid}`);
+    return this.requestValorantApi<SprayResponse>(`v1/sprays/${uuid}`);
   }
 }
 

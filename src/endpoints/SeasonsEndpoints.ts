@@ -28,7 +28,7 @@ class SeasonsEndpoints extends BaseEndpoint {
    * @returns Promise<SeasonsResponse>
    */
   public async getSeasonsV1(): Promise<SeasonsResponse> {
-    return this.requestValorantApi<SeasonsResponse>('https://valorant-api.com/v1/seasons');
+    return this.requestValorantApi<SeasonsResponse>('v1/seasons');
   }
 
   /**
@@ -37,7 +37,7 @@ class SeasonsEndpoints extends BaseEndpoint {
    * @returns Promise<SeasonResponse>
    */
   public async getSeasonByUuidV1(uuid: string): Promise<SeasonResponse> {
-    return this.requestValorantApi<SeasonResponse>(`https://valorant-api.com/v1/seasons/${uuid}`);
+    return this.requestValorantApi<SeasonResponse>(`v1/seasons/${uuid}`);
   }
 }
 

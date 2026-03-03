@@ -25,11 +25,11 @@ class PlayerCardsEndpoints extends BaseEndpoint {
   }
 
   public async getPlayerCardsV1(): Promise<PlayerCardsResponse> {
-    return this.requestValorantApi<PlayerCardsResponse>('https://valorant-api.com/v1/playercards');
+    return this.requestValorantApi<PlayerCardsResponse>('v1/playercards');
   }
 
   public async getPlayerCardByUuidV1(uuid: string): Promise<PlayerCardResponse> {
-    return this.requestValorantApi<PlayerCardResponse>(`https://valorant-api.com/v1/playercards/${uuid}`);
+    return this.requestValorantApi<PlayerCardResponse>(`v1/playercards/${uuid}`);
   }
 }
 

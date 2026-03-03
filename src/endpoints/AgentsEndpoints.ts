@@ -83,14 +83,14 @@ class AgentsEndpoints extends BaseEndpoint {
   }
 
   public async getAgentsV1(isPlayableCharacter: boolean = true): Promise<AgentsResponse> {
-    const url = new URL('https://valorant-api.com/v1/agents')
+    const url = new URL('v1/agents', 'https://valorant-api.com/')
     url.searchParams.set('isPlayableCharacter', isPlayableCharacter.toString());
 
     return this.requestValorantApi<AgentsResponse>(url.toString());
   }
 
   public async getAgentsByUuidV1(uuid: string): Promise<AgentResponse> {
-    return this.requestValorantApi<AgentResponse>(`https://valorant-api.com/v1/agents/${uuid}`);
+    return this.requestValorantApi<AgentResponse>(`v1/agents/${uuid}`);
   }
 }
 
