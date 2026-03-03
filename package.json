@@ -1,7 +1,23 @@
 {
   "name": "@valpro-labs/valorant-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A typed TypeScript client for Valorant-API",
+  "homepage": "https://github.com/valpro-labs/valorant-api#readme",
+  "bugs": {
+    "url": "https://github.com/valpro-labs/valorant-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valpro-labs/valorant-api.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "valorant"
+  ],
+  "author": "rhy3h",
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,9 +25,6 @@
     "prepare": "npm run build",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "axios": "^1.13.5",
