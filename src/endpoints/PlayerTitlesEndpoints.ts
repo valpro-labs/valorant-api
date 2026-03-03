@@ -1,19 +1,6 @@
-import { z } from 'zod';
-
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-export const PlayerTitleSchema = z.object({
-  uuid: z.string().uuid(),
-  displayName: z.string(),
-  titleText: z.string(),
-  isHiddenIfNotOwned: z.boolean(),
-  assetPath: z.string(),
-});
-
-export const PlayerTitlesSchema = z.array(PlayerTitleSchema);
-
-export type PlayerTitleResponse = z.infer<typeof PlayerTitleSchema>;
-export type PlayerTitlesResponse = z.infer<typeof PlayerTitlesSchema>;
+import { PlayerTitleResponse, PlayerTitlesResponse } from '../schemas';
 
 class PlayerTitlesEndpoints extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {

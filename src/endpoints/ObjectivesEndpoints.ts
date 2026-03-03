@@ -1,17 +1,6 @@
-import { z } from 'zod';
-
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-export const ObjectiveSchema = z.object({
-  uuid: z.string().uuid(),
-  directive: z.string(),
-  assetPath: z.string(),
-});
-
-export const ObjectivesSchema = z.array(ObjectiveSchema);
-
-export type ObjectiveResponse = z.infer<typeof ObjectiveSchema>;
-export type ObjectivesResponse = z.infer<typeof ObjectivesSchema>;
+import { ObjectiveResponse, ObjectivesResponse } from '../schemas';
 
 class ObjectivesEndpoints extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {

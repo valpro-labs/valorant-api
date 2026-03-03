@@ -1,20 +1,6 @@
-import { z } from 'zod';
-
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-export const EventSchema = z.object({
-  uuid: z.string().uuid(),
-  displayName: z.string(),
-  shortDisplayName: z.string(),
-  startTime: z.string(),
-  endTime: z.string(),
-  assetPath: z.string(),
-});
-
-export const EventsSchema = z.array(EventSchema);
-
-export type EventResponse = z.infer<typeof EventSchema>;
-export type EventsResponse = z.infer<typeof EventsSchema>;
+import { EventResponse, EventsResponse } from '../schemas';
 
 class EventsEndpoints extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {

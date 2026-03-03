@@ -1,23 +1,6 @@
-import { z } from 'zod';
-
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-export const PlayerCardSchema = z.object({
-  uuid: z.string().uuid(),
-  displayName: z.string(),
-  isHiddenIfNotOwned: z.boolean(),
-  themeUuid: z.string().uuid(),
-  displayIcon: z.string(),
-  smallArt: z.string(),
-  wideArt: z.string(),
-  largeArt: z.string(),
-  assetPath: z.string(),
-});
-
-export const PlayerCardsSchema = z.array(PlayerCardSchema);
-
-export type PlayerCardResponse = z.infer<typeof PlayerCardSchema>;
-export type PlayerCardsResponse = z.infer<typeof PlayerCardsSchema>;
+import { PlayerCardResponse, PlayerCardsResponse } from '../schemas';
 
 class PlayerCardsEndpoints extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {

@@ -1,31 +1,6 @@
-import { z } from 'zod';
-
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-export const BuddyLevelSchema = z.object({
-  uuid: z.string().uuid(),
-  displayName: z.string(),
-  displayIcon: z.string(),
-  assetPath: z.string(),
-});
-
-export const BuddySchema = z.object({
-  uuid: z.string().uuid(),
-  displayName: z.string(),
-  isHiddenIfNotOwned: z.boolean(),
-  themeUuid: z.string().uuid().nullable(),
-  displayIcon: z.string(),
-  assetPath: z.string(),
-  levels: z.array(BuddyLevelSchema),
-});
-
-export const BuddiesSchema = z.array(BuddySchema);
-export const BuddyLevelsSchema = z.array(BuddyLevelSchema);
-
-export type BuddyResponse = z.infer<typeof BuddySchema>;
-export type BuddiesResponse = z.infer<typeof BuddiesSchema>;
-export type BuddyLevelResponse = z.infer<typeof BuddyLevelSchema>;
-export type BuddyLevelsResponse = z.infer<typeof BuddyLevelsSchema>;
+import { BuddyResponse, BuddiesResponse, BuddyLevelResponse } from '../schemas';
 
 class BuddiesEndpoints extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {

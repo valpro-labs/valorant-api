@@ -1,20 +1,6 @@
-import { z } from 'zod';
-
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
-import { LocalizedStringSchema } from '../schemas/SharedSchemas';
 
-export const FlexSchema = z.object({
-  uuid: z.string().uuid(),
-  displayName: LocalizedStringSchema,
-  displayNameAllCaps: LocalizedStringSchema,
-  displayIcon: z.string(),
-  assetPath: z.string(),
-});
-
-export const FlexsSchema = z.array(FlexSchema);
-
-export type FlexResponse = z.infer<typeof FlexSchema>;
-export type FlexsResponse = z.infer<typeof FlexsSchema>;
+import { FlexResponse, FlexsResponse } from '../schemas';
 
 class FlexEndpoints extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {
