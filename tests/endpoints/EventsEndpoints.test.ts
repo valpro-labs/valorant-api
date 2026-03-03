@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ValorantApi } from '../src/index';
+import { ValorantApi } from '../../src/index';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
