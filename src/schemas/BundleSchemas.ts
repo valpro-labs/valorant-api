@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const BundleSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),
-  displayNameSubtext: z.string(),
+  displayNameSubText: z.string(),
   description: z.string(),
   extraDescription: z.string(),
   promoDescription: z.string(),
