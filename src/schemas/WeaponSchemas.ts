@@ -81,10 +81,27 @@ export const ChromaSchema = z.object({
 });
 export type ChromaResponse = z.infer<typeof ChromaSchema>;
 
+export const LevelItemSchema = z.enum([
+  'EEquippableSkinLevelItem::VFX',
+  'EEquippableSkinLevelItem::Animation',
+  'EEquippableSkinLevelItem::Finisher',
+  'EEquippableSkinLevelItem::Voiceover',
+  'EEquippableSkinLevelItem::SoundEffects',
+  'EEquippableSkinLevelItem::FishAnimation',
+  'EEquippableSkinLevelItem::KillBanner',
+  'EEquippableSkinLevelItem::TopFrag',
+  'EEquippableSkinLevelItem::KillCounter',
+  'EEquippableSkinLevelItem::InspectAndKill',
+  'EEquippableSkinLevelItem::KillEffect',
+  'EEquippableSkinLevelItem::AttackerDefenderSwap',
+  'EEquippableSkinLevelItem::Randomizer',
+]);
+export type LevelItem = z.infer<typeof LevelItemSchema>;
+
 export const LevelSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
-  levelItem: z.string(),
+  levelItem: LevelItemSchema.or(z.string()).nullable(),
   displayIcon: z.string(),
   streamedVideo: z.string(),
   assetPath: z.string(),
