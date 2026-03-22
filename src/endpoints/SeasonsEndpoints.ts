@@ -1,6 +1,6 @@
 import { BaseEndpoint, ValorantApiConfig } from './BaseEndpoint';
 
-import { SeasonResponse, SeasonsResponse } from '../schemas';
+import { SeasonResponse, SeasonsResponse, CompetitiveSeasonResponse, CompetitiveSeasonsResponse } from '../schemas';
 
 class SeasonsEndpoints extends BaseEndpoint {
   constructor(config?: ValorantApiConfig) {
@@ -22,6 +22,23 @@ class SeasonsEndpoints extends BaseEndpoint {
    */
   public async getSeasonByUuidV1(uuid: string): Promise<SeasonResponse> {
     return this.requestValorantApi<SeasonResponse>(`v1/seasons/${uuid}`);
+  }
+
+  /**
+   * Get all competitive seasons
+   * @returns Promise<CompetitiveSeasonsResponse>
+   */
+  public async getCompetitiveSeasonsV1(): Promise<CompetitiveSeasonsResponse> {
+    return this.requestValorantApi<CompetitiveSeasonsResponse>('v1/seasons/competitive');
+  }
+
+  /**
+   * Get competitive season by UUID
+   * @param uuid Competitive Season UUID
+   * @returns Promise<CompetitiveSeasonResponse>
+   */
+  public async getCompetitiveSeasonByUuidV1(uuid: string): Promise<CompetitiveSeasonResponse> {
+    return this.requestValorantApi<CompetitiveSeasonResponse>(`v1/seasons/competitive/${uuid}`);
   }
 }
 
