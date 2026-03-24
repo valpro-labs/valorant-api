@@ -1,15 +1,13 @@
 import { z } from 'zod';
 import { LocalizedStringSchema } from './SharedSchemas';
+import { GridPositionSchema } from './WeaponSchemas';
 
 export const GearShopDataSchema = z.object({
   cost: z.number().int(),
   category: z.string(),
   shopOrderPriority: z.number().int(),
   categoryText: LocalizedStringSchema,
-  gridPosition: z.object({
-    row: z.number().int(),
-    column: z.number().int(),
-  }).nullable(),
+  gridPosition: GridPositionSchema.nullable(),
   canBeTrashed: z.boolean(),
   image: z.string().nullable(),
   newImage: z.string(),
