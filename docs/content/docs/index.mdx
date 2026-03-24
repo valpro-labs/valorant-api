@@ -1,0 +1,28 @@
+---
+title: Introduction
+description: A fully typed TypeScript client for the Valorant API.
+---
+
+## What is `@valpro-labs/valorant-api`?
+
+A typed TypeScript wrapper for [valorant-api.com](https://valorant-api.com/) that provides:
+
+- **Full type safety** — Every response is validated with Zod schemas.
+- **All endpoints** — Agents, weapons, maps, seasons, and more.
+- **Zero config** — Works out of the box with sensible defaults.
+
+## Quick Example
+
+```ts
+import { ValorantApi } from '@valpro-labs/valorant-api';
+
+const api = new ValorantApi();
+
+const agents = await api.agents.getAgentsV1();
+console.log(agents); // Fully typed AgentsResponse
+```
+
+## Next Steps
+
+- [Getting Started](/docs/getting-started) — Install and set up the client.
+- [API Reference](/docs/api) — Browse all endpoints, schemas, and types.

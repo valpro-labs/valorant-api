@@ -1,0 +1,82 @@
+---
+title: Getting Started
+description: Install and configure @valpro-labs/valorant-api in your project.
+---
+
+## Installation
+
+```bash tab="npm"
+npm install @valpro-labs/valorant-api
+```
+
+```bash tab="pnpm"
+pnpm add @valpro-labs/valorant-api
+```
+
+```bash tab="yarn"
+yarn add @valpro-labs/valorant-api
+```
+
+## Basic Usage
+
+Create an instance of `ValorantApi` and call any endpoint:
+
+```ts
+import { ValorantApi } from '@valpro-labs/valorant-api';
+
+const api = new ValorantApi();
+
+// Get all agents
+const agents = await api.agents.getAgentsV1();
+
+// Get a specific agent by UUID
+const agent = await api.agents.getAgentsByUuidV1('some-uuid');
+
+// Get all weapons
+const weapons = await api.weapons.getWeaponsV1();
+
+// Get all maps
+const maps = await api.maps.getMapsV1();
+```
+
+## Configuration
+
+You can pass an optional config object:
+
+```ts
+const api = new ValorantApi({
+  language: 'zh-TW', // Response language
+});
+```
+
+## Available Endpoints
+
+| Endpoint | Accessor | Description |
+| --- | --- | --- |
+| Agents | `api.agents` | Playable agents and their abilities |
+| Buddies | `api.buddies` | Weapon buddies and buddy levels |
+| Bundles | `api.bundles` | Store bundles |
+| Ceremonies | `api.ceremonies` | Match ceremonies |
+| Competitive Tiers | `api.competitiveTiers` | Ranked tier sets |
+| Content Tiers | `api.contentTiers` | Content rarity tiers |
+| Contracts | `api.contracts` | Agent contracts and battle passes |
+| Currencies | `api.currencies` | In-game currencies |
+| Events | `api.events` | Game events |
+| Flex | `api.flex` | Flex content |
+| Game Modes | `api.gameModes` | Game modes and equippables |
+| Gear | `api.gear` | Armor (shields) |
+| Level Borders | `api.levelBorders` | Account level borders |
+| Maps | `api.maps` | Playable maps |
+| Missions | `api.missions` | Daily/weekly missions |
+| Objectives | `api.objectives` | Mission objectives |
+| Player Cards | `api.playerCards` | Player cards |
+| Player Titles | `api.playerTitles` | Player titles |
+| Seasons | `api.seasons` | Seasons and competitive seasons |
+| Sprays | `api.sprays` | Sprays and spray levels |
+| Themes | `api.themes` | Content themes |
+| Version | `api.version` | Current game version |
+| Weapons | `api.weapons` | Weapons, skins, chromas, and levels |
+
+## Next Steps
+
+Browse the [API Reference](/docs/api) for full type information on every endpoint and response schema.
