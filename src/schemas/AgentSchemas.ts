@@ -10,7 +10,7 @@ export const VoiceLineMediaSchema = z.object({
 /** A single agent's voice line media data. */
 export type VoiceLineMediaResponse = z.infer<typeof VoiceLineMediaSchema>;
 
-/** Schema for a single agent's voice line. */
+/** Schema for a single agent's voice line, containing {@link VoiceLineMediaResponse | media data}. */
 export const VoiceLineSchema = z.object({
   minDuration: z.number(),
   maxDuration: z.number(),
@@ -54,7 +54,7 @@ export const RecruitmentDataSchema = z.object({
 /** An agent's recruitment data. */
 export type RecruitmentDataResponse = z.infer<typeof RecruitmentDataSchema>;
 
-/** Schema for a single agent. */
+/** Schema for a single agent, including its {@link RoleResponse | role}, {@link AbilityResponse | abilities}, and {@link RecruitmentDataResponse | recruitment data}. */
 export const AgentSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,

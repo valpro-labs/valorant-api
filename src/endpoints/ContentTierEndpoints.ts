@@ -12,7 +12,7 @@ class ContentTierEndpoints extends BaseEndpoint {
 
   /**
    * Get all content tiers.
-   * @returns A list of all content tiers.
+   * @returns An array of {@link ContentTierResponse} objects.
    */
   public async getContentTiersV1(): Promise<ContentTiersResponse> {
     return this.requestValorantApi<ContentTiersResponse>('v1/contenttiers');
@@ -21,7 +21,7 @@ class ContentTierEndpoints extends BaseEndpoint {
   /**
    * Get a content tier by UUID.
    * @param uuid - The UUID of the content tier.
-   * @returns The content tier matching the given UUID.
+   * @returns The {@link ContentTierResponse} matching the given UUID.
    */
   public async getContentTierByUuidV1(uuid: string): Promise<ContentTierResponse> {
     return this.requestValorantApi<ContentTierResponse>(`v1/contenttiers/${uuid}`);

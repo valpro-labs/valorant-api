@@ -12,7 +12,7 @@ class CurrenciesEndpoints extends BaseEndpoint {
 
   /**
    * Get all currencies.
-   * @returns A list of all currencies.
+   * @returns An array of {@link CurrencyResponse} objects.
    */
   public async getCurrenciesV1(): Promise<CurrenciesResponse> {
     return this.requestValorantApi<CurrenciesResponse>('v1/currencies');
@@ -21,7 +21,7 @@ class CurrenciesEndpoints extends BaseEndpoint {
   /**
    * Get a currency by UUID.
    * @param uuid - The UUID of the currency.
-   * @returns The currency matching the given UUID.
+   * @returns The {@link CurrencyResponse} matching the given UUID.
    */
   public async getCurrencyByUuidV1(uuid: string): Promise<CurrencyResponse> {
     return this.requestValorantApi<CurrencyResponse>(`v1/currencies/${uuid}`);

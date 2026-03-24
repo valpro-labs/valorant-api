@@ -12,7 +12,7 @@ class PlayerTitlesEndpoints extends BaseEndpoint {
 
   /**
    * Get all player titles.
-   * @returns A list of all player titles.
+   * @returns An array of {@link PlayerTitleResponse} objects.
    */
   public async getPlayerTitlesV1(): Promise<PlayerTitlesResponse> {
     return this.requestValorantApi<PlayerTitlesResponse>('v1/playertitles');
@@ -21,7 +21,7 @@ class PlayerTitlesEndpoints extends BaseEndpoint {
   /**
    * Get a player title by its UUID.
    * @param uuid - The UUID of the player title.
-   * @returns The player title matching the given UUID.
+   * @returns The {@link PlayerTitleResponse} matching the given UUID.
    */
   public async getPlayerTitleByUuidV1(uuid: string): Promise<PlayerTitleResponse> {
     return this.requestValorantApi<PlayerTitleResponse>(`v1/playertitles/${uuid}`);

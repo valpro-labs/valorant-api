@@ -12,7 +12,7 @@ class FlexEndpoints extends BaseEndpoint {
 
   /**
    * Get all flex items.
-   * @returns A list of all flex items.
+   * @returns An array of {@link FlexResponse} objects.
    */
   public async getFlexV1(): Promise<FlexsResponse> {
     return this.requestValorantApi<FlexsResponse>('v1/flex');
@@ -21,7 +21,7 @@ class FlexEndpoints extends BaseEndpoint {
   /**
    * Get a flex item by its UUID.
    * @param uuid - The UUID of the flex item.
-   * @returns The flex item matching the given UUID.
+   * @returns The {@link FlexResponse} matching the given UUID.
    */
   public async getFlexByUuidV1(uuid: string): Promise<FlexResponse> {
     return this.requestValorantApi<FlexResponse>(`v1/flex/${uuid}`);

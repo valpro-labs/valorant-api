@@ -12,7 +12,7 @@ class SeasonsEndpoints extends BaseEndpoint {
 
   /**
    * Get all seasons.
-   * @returns A list of all seasons.
+   * @returns An array of {@link SeasonResponse} objects.
    */
   public async getSeasonsV1(): Promise<SeasonsResponse> {
     return this.requestValorantApi<SeasonsResponse>('v1/seasons');
@@ -21,7 +21,7 @@ class SeasonsEndpoints extends BaseEndpoint {
   /**
    * Get a season by its UUID.
    * @param uuid - The UUID of the season.
-   * @returns The season matching the given UUID.
+   * @returns The {@link SeasonResponse} matching the given UUID.
    */
   public async getSeasonByUuidV1(uuid: string): Promise<SeasonResponse> {
     return this.requestValorantApi<SeasonResponse>(`v1/seasons/${uuid}`);
@@ -29,7 +29,7 @@ class SeasonsEndpoints extends BaseEndpoint {
 
   /**
    * Get all competitive seasons.
-   * @returns A list of all competitive seasons.
+   * @returns An array of {@link CompetitiveSeasonResponse} objects.
    */
   public async getCompetitiveSeasonsV1(): Promise<CompetitiveSeasonsResponse> {
     return this.requestValorantApi<CompetitiveSeasonsResponse>('v1/seasons/competitive');
@@ -38,7 +38,7 @@ class SeasonsEndpoints extends BaseEndpoint {
   /**
    * Get a competitive season by its UUID.
    * @param uuid - The UUID of the competitive season.
-   * @returns The competitive season matching the given UUID.
+   * @returns The {@link CompetitiveSeasonResponse} matching the given UUID.
    */
   public async getCompetitiveSeasonByUuidV1(uuid: string): Promise<CompetitiveSeasonResponse> {
     return this.requestValorantApi<CompetitiveSeasonResponse>(`v1/seasons/competitive/${uuid}`);

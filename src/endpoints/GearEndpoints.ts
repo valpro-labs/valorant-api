@@ -12,7 +12,7 @@ class GearEndpoints extends BaseEndpoint {
 
   /**
    * Get all gear.
-   * @returns A list of all gear items.
+   * @returns An array of {@link GearResponse} objects.
    */
   public async getGearV1(): Promise<GearsResponse> {
     return this.requestValorantApi<GearsResponse>('v1/gear');
@@ -21,7 +21,7 @@ class GearEndpoints extends BaseEndpoint {
   /**
    * Get a gear item by its UUID.
    * @param uuid - The UUID of the gear item.
-   * @returns The gear item matching the given UUID.
+   * @returns The {@link GearResponse} matching the given UUID.
    */
   public async getGearByUuidV1(uuid: string): Promise<GearResponse> {
     return this.requestValorantApi<GearResponse>(`v1/gear/${uuid}`);

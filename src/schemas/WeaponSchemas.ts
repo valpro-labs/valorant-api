@@ -39,7 +39,7 @@ export const DamageRangeSchema = z.object({
 /** A single damage range's data. */
 export type DamageRangeResponse = z.infer<typeof DamageRangeSchema>;
 
-/** Schema for weapon stats. */
+/** Schema for weapon stats, including {@link AdsStatsResponse | ADS stats}, {@link AltShotgunStatsResponse | alternate shotgun stats}, {@link AirBurstStatsResponse | air burst stats}, and {@link DamageRangeResponse | damage ranges}. */
 export const WeaponStatsSchema = z.object({
   fireRate: z.number(),
   magazineSize: z.number().int(),
@@ -68,7 +68,7 @@ export const GridPositionSchema = z.object({
 /** A grid position's data. */
 export type GridPositionResponse = z.infer<typeof GridPositionSchema>;
 
-/** Schema for shop data. */
+/** Schema for shop data, including a {@link GridPositionResponse | grid position}. */
 export const ShopDataSchema = z.object({
   cost: z.number().int(),
   category: z.string(),
@@ -128,7 +128,7 @@ export const LevelSchema = z.object({
 /** A single skin level's data. */
 export type LevelResponse = z.infer<typeof LevelSchema>;
 
-/** Schema for a single weapon skin. */
+/** Schema for a single weapon skin, including its {@link ChromaResponse | chromas} and {@link LevelResponse | levels}. */
 export const SkinSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
@@ -143,7 +143,7 @@ export const SkinSchema = z.object({
 /** A single weapon skin's data. */
 export type SkinResponse = z.infer<typeof SkinSchema>;
 
-/** Schema for a single weapon. */
+/** Schema for a single weapon, including its {@link WeaponStatsResponse | stats}, {@link ShopDataResponse | shop data}, and {@link SkinResponse | skins}. */
 export const WeaponSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,

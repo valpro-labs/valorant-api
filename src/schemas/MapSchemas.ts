@@ -28,7 +28,7 @@ export const RotationSchema = z.object({
 /** A 3D rotation's data. */
 export type RotationResponse = z.infer<typeof RotationSchema>;
 
-/** Schema for a single map callout. */
+/** Schema for a single map callout, including its {@link LocationResponse | location}, {@link Scale3DResponse | scale}, and {@link RotationResponse | rotation}. */
 export const CalloutSchema = z.object({
   regionName: LocalizedStringSchema,
   superRegion: z.string(),
@@ -40,7 +40,7 @@ export const CalloutSchema = z.object({
 /** A single map callout's data. */
 export type CalloutResponse = z.infer<typeof CalloutSchema>;
 
-/** Schema for a single map. */
+/** Schema for a single map, including its {@link CalloutResponse | callouts}. */
 export const MapSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,

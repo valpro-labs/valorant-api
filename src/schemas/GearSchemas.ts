@@ -18,7 +18,7 @@ export const GearShopDataSchema = z.object({
 /** A gear item's shop data. */
 export type GearShopDataResponse = z.infer<typeof GearShopDataSchema>;
 
-/** Schema for a single gear item. */
+/** Schema for a single gear item, including its {@link GearShopDataResponse | shop data}. */
 export const GearSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,

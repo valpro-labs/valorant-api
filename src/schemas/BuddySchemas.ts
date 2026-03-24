@@ -10,7 +10,7 @@ export const BuddyLevelSchema = z.object({
 /** A single buddy level. */
 export type BuddyLevelResponse = z.infer<typeof BuddyLevelSchema>;
 
-/** Schema for a single buddy (gun charm). */
+/** Schema for a single buddy (gun charm), including its {@link BuddyLevelResponse | levels}. */
 export const BuddySchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),

@@ -12,7 +12,7 @@ class MapsEndpoints extends BaseEndpoint {
 
   /**
    * Get all maps.
-   * @returns A list of all maps.
+   * @returns An array of {@link MapResponse} objects.
    */
   public async getMapsV1(): Promise<MapsResponse> {
     return this.requestValorantApi<MapsResponse>('v1/maps');
@@ -21,7 +21,7 @@ class MapsEndpoints extends BaseEndpoint {
   /**
    * Get a map by its UUID.
    * @param uuid - The UUID of the map.
-   * @returns The map matching the given UUID.
+   * @returns The {@link MapResponse} matching the given UUID.
    */
   public async getMapByUuidV1(uuid: string): Promise<MapResponse> {
     return this.requestValorantApi<MapResponse>(`v1/maps/${uuid}`);
