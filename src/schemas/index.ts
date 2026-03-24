@@ -5,6 +5,7 @@ export * from './WeaponSchemas';
 export * from './MapSchemas';
 export * from './ContractSchemas';
 export * from './GameModeSchemas';
+export * from './GameModeEquippableSchemas';
 export * from './BuddySchemas';
 export * from './BundleSchemas';
 export * from './CompetitiveTierSchemas';

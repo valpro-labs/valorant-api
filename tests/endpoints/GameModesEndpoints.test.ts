@@ -24,4 +24,20 @@ describe('GameModesEndpoints', () => {
     await api.gameModesEndpoints.getGameModeByUuidV1('test-uuid');
     expect(mockedAxios.get).toHaveBeenCalledWith(expect.stringContaining('v1/gamemodes/test-uuid'));
   });
+
+  it('getGameModeEquippablesV1 calls correct URL', async () => {
+    const api = new ValorantApi();
+    mockedAxios.get.mockResolvedValue({ data: { data: [], status: '200' } });
+
+    await api.gameModesEndpoints.getGameModeEquippablesV1();
+    expect(mockedAxios.get).toHaveBeenCalledWith(expect.stringContaining('v1/gamemodes/equippables'));
+  });
+
+  it('getGameModeEquippableByUuidV1 calls correct URL', async () => {
+    const api = new ValorantApi();
+    mockedAxios.get.mockResolvedValue({ data: { data: {}, status: '200' } });
+
+    await api.gameModesEndpoints.getGameModeEquippableByUuidV1('test-uuid');
+    expect(mockedAxios.get).toHaveBeenCalledWith(expect.stringContaining('v1/gamemodes/equippables/test-uuid'));
+  });
 });
