@@ -12,7 +12,7 @@ class ObjectivesEndpoints extends BaseEndpoint {
 
   /**
    * Get all objectives.
-   * @returns A list of all objectives.
+   * @returns An array of {@link ObjectiveResponse} objects.
    */
   public async getObjectivesV1(): Promise<ObjectivesResponse> {
     return this.requestValorantApi<ObjectivesResponse>('v1/objectives');
@@ -21,7 +21,7 @@ class ObjectivesEndpoints extends BaseEndpoint {
   /**
    * Get an objective by its UUID.
    * @param uuid - The UUID of the objective.
-   * @returns The objective matching the given UUID.
+   * @returns The {@link ObjectiveResponse} matching the given UUID.
    */
   public async getObjectiveByUuidV1(uuid: string): Promise<ObjectiveResponse> {
     return this.requestValorantApi<ObjectiveResponse>(`v1/objectives/${uuid}`);

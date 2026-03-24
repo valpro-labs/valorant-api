@@ -12,7 +12,7 @@ class BundlesEndpoints extends BaseEndpoint {
 
   /**
    * Get all store bundles.
-   * @returns A list of all store bundles.
+   * @returns An array of {@link BundleResponse} objects.
    */
   public async getBundlesV1(): Promise<BundlesResponse> {
     return this.requestValorantApi<BundlesResponse>('v1/bundles');
@@ -21,7 +21,7 @@ class BundlesEndpoints extends BaseEndpoint {
   /**
    * Get a store bundle by UUID.
    * @param uuid - The UUID of the bundle.
-   * @returns The bundle matching the given UUID.
+   * @returns The {@link BundleResponse} matching the given UUID.
    */
   public async getBundleByUuidV1(uuid: string): Promise<BundleResponse> {
     return this.requestValorantApi<BundleResponse>(`v1/bundles/${uuid}`);

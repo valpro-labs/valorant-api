@@ -14,7 +14,7 @@ class ContractsEndpoints extends BaseEndpoint {
 
   /**
    * Get all contracts.
-   * @returns A list of all contracts.
+   * @returns An array of {@link ContractResponse} objects.
    */
   public async getContractsV1(): Promise<ContractsResponse> {
     return this.requestValorantApi<ContractsResponse>('v1/contracts');
@@ -23,7 +23,7 @@ class ContractsEndpoints extends BaseEndpoint {
   /**
    * Get a contract by UUID.
    * @param uuid - The UUID of the contract.
-   * @returns The contract matching the given UUID.
+   * @returns The {@link ContractResponse} matching the given UUID.
    */
   public async getContractByUuidV1(uuid: string): Promise<ContractResponse> {
     return this.requestValorantApi<ContractResponse>(`v1/contracts/${uuid}`);

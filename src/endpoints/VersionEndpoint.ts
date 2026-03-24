@@ -12,7 +12,7 @@ class VersionEndpoint extends BaseEndpoint {
 
   /**
    * Get the current Valorant build version info.
-   * @returns The current version information.
+   * @returns The current {@link VersionResponse} information.
    */
   public async getVersionV1(): Promise<VersionResponse> {
     return this.requestValorantApi<VersionResponse>('v1/version');

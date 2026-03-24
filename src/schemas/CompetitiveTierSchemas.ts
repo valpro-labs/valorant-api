@@ -16,7 +16,7 @@ export const TierSchema = z.object({
 /** A single competitive tier (rank). */
 export type TierResponse = z.infer<typeof TierSchema>;
 
-/** Schema for a single competitive tier set. */
+/** Schema for a single competitive tier set, including its {@link TierResponse | tiers}. */
 export const CompetitiveTierSetSchema = z.object({
   uuid: z.string().uuid(),
   assetObjectName: z.string(),

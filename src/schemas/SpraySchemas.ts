@@ -11,7 +11,7 @@ export const SprayLevelSchema = z.object({
 /** A single spray level's data. */
 export type SprayLevelResponse = z.infer<typeof SprayLevelSchema>;
 
-/** Schema for a single spray. */
+/** Schema for a single spray, including its {@link SprayLevelResponse | levels}. */
 export const SpraySchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),

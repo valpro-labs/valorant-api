@@ -31,7 +31,7 @@ export const CompetitiveSeasonBorderSchema = z.object({
 /** A single competitive season border's data. */
 export type CompetitiveSeasonBorderResponse = z.infer<typeof CompetitiveSeasonBorderSchema>;
 
-/** Schema for a single competitive season. */
+/** Schema for a single competitive season, including its {@link CompetitiveSeasonBorderResponse | borders}. */
 export const CompetitiveSeasonSchema = z.object({
   uuid: z.string().uuid(),
   startTime: z.string(),

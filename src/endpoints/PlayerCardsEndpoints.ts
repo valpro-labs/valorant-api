@@ -12,7 +12,7 @@ class PlayerCardsEndpoints extends BaseEndpoint {
 
   /**
    * Get all player cards.
-   * @returns A list of all player cards.
+   * @returns An array of {@link PlayerCardResponse} objects.
    */
   public async getPlayerCardsV1(): Promise<PlayerCardsResponse> {
     return this.requestValorantApi<PlayerCardsResponse>('v1/playercards');
@@ -21,7 +21,7 @@ class PlayerCardsEndpoints extends BaseEndpoint {
   /**
    * Get a player card by its UUID.
    * @param uuid - The UUID of the player card.
-   * @returns The player card matching the given UUID.
+   * @returns The {@link PlayerCardResponse} matching the given UUID.
    */
   public async getPlayerCardByUuidV1(uuid: string): Promise<PlayerCardResponse> {
     return this.requestValorantApi<PlayerCardResponse>(`v1/playercards/${uuid}`);

@@ -12,7 +12,7 @@ class ThemesEndpoints extends BaseEndpoint {
 
   /**
    * Get all themes.
-   * @returns A list of all themes.
+   * @returns An array of {@link ThemeResponse} objects.
    */
   public async getThemesV1(): Promise<ThemesResponse> {
     return this.requestValorantApi<ThemesResponse>('v1/themes');
@@ -21,7 +21,7 @@ class ThemesEndpoints extends BaseEndpoint {
   /**
    * Get a theme by its UUID.
    * @param uuid - The UUID of the theme.
-   * @returns The theme matching the given UUID.
+   * @returns The {@link ThemeResponse} matching the given UUID.
    */
   public async getThemeByUuidV1(uuid: string): Promise<ThemeResponse> {
     return this.requestValorantApi<ThemeResponse>(`v1/themes/${uuid}`);

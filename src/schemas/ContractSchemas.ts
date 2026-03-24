@@ -10,7 +10,7 @@ export const RewardSchema = z.object({
 /** A single contract reward. */
 export type RewardResponse = z.infer<typeof RewardSchema>;
 
-/** Schema for a single contract level. */
+/** Schema for a single contract level, containing a {@link RewardResponse | reward}. */
 export const ContractLevelSchema = z.object({
   reward: RewardSchema,
   xp: z.number().int(),
@@ -22,7 +22,7 @@ export const ContractLevelSchema = z.object({
 /** A single contract level. */
 export type ContractLevelResponse = z.infer<typeof ContractLevelSchema>;
 
-/** Schema for a single contract chapter. */
+/** Schema for a single contract chapter, containing {@link ContractLevelResponse | levels} and {@link RewardResponse | free rewards}. */
 export const ChapterSchema = z.object({
   isEpilogue: z.boolean(),
   levels: z.array(ContractLevelSchema),
@@ -31,7 +31,7 @@ export const ChapterSchema = z.object({
 /** A single contract chapter. */
 export type ChapterResponse = z.infer<typeof ChapterSchema>;
 
-/** Schema for a contract's content data. */
+/** Schema for a contract's content data, containing {@link ChapterResponse | chapters}. */
 export const ContractContentSchema = z.object({
   relationType: z.string().nullable(),
   relationUuid: z.string().uuid().nullable(),
@@ -42,7 +42,7 @@ export const ContractContentSchema = z.object({
 /** A contract's content data. */
 export type ContractContentResponse = z.infer<typeof ContractContentSchema>;
 
-/** Schema for a single contract. */
+/** Schema for a single contract, including its {@link ContractContentResponse | content}. */
 export const ContractSchema = z.object({
   uuid: z.string().uuid(),
   displayName: z.string(),

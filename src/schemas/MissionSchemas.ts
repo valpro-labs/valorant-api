@@ -9,7 +9,7 @@ export const MissionObjectiveSchema = z.object({
 /** A single mission objective's data. */
 export type MissionObjectiveResponse = z.infer<typeof MissionObjectiveSchema>;
 
-/** Schema for a single mission. */
+/** Schema for a single mission, including its {@link MissionObjectiveResponse | objectives}. */
 export const MissionSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,

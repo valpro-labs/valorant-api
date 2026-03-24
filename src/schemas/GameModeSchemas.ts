@@ -17,7 +17,7 @@ export const GameRuleBoolOverrideSchema = z.object({
 /** A single game rule boolean override's data. */
 export type GameRuleBoolOverrideResponse = z.infer<typeof GameRuleBoolOverrideSchema>;
 
-/** Schema for a single game mode. */
+/** Schema for a single game mode, including {@link GameFeatureOverrideResponse | feature overrides} and {@link GameRuleBoolOverrideResponse | rule overrides}. */
 export const GameModeSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,

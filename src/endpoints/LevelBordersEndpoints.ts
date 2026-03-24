@@ -12,7 +12,7 @@ class LevelBordersEndpoints extends BaseEndpoint {
 
   /**
    * Get all level borders.
-   * @returns A list of all level borders.
+   * @returns An array of {@link LevelBorderResponse} objects.
    */
   public async getLevelBordersV1(): Promise<LevelBordersResponse> {
     return this.requestValorantApi<LevelBordersResponse>('v1/levelborders');
@@ -21,7 +21,7 @@ class LevelBordersEndpoints extends BaseEndpoint {
   /**
    * Get a level border by its UUID.
    * @param uuid - The UUID of the level border.
-   * @returns The level border matching the given UUID.
+   * @returns The {@link LevelBorderResponse} matching the given UUID.
    */
   public async getLevelBorderByUuidV1(uuid: string): Promise<LevelBorderResponse> {
     return this.requestValorantApi<LevelBorderResponse>(`v1/levelborders/${uuid}`);
