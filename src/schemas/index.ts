@@ -20,4 +20,5 @@ export * from './PlayerTitleSchemas';
 export * from './SeasonSchemas';
 export * from './SpraySchemas';
 export * from './VersionSchemas';
+export * from './ThemeSchemas';
 export * from './SharedSchemas';

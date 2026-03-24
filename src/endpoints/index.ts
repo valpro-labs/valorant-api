@@ -19,5 +19,6 @@ export * from './PlayerCardsEndpoints';
 export * from './PlayerTitlesEndpoints';
 export * from './SeasonsEndpoints';
 export * from './SpraysEndpoints';
+export * from './ThemesEndpoints';
 export * from './VersionEndpoint';
 export * from './WeaponsEndpoints';

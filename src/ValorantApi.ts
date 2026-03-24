@@ -21,6 +21,7 @@ import { EventsEndpoints } from './endpoints/EventsEndpoints';
 import { SeasonsEndpoints } from './endpoints/SeasonsEndpoints';
 import { CeremoniesEndpoints } from './endpoints/CeremoniesEndpoints';
 import { GearEndpoints } from './endpoints/GearEndpoints';
+import { ThemesEndpoints } from './endpoints/ThemesEndpoints';
 
 class ValorantApi {
   public versionEndpoint: VersionEndpoint;
@@ -45,6 +46,7 @@ class ValorantApi {
   public seasonsEndpoints: SeasonsEndpoints;
   public ceremoniesEndpoints: CeremoniesEndpoints;
   public gearEndpoints: GearEndpoints;
+  public themesEndpoints: ThemesEndpoints;
 
   constructor(config?: ValorantApiConfig) {
     this.versionEndpoint = new VersionEndpoint(config);
@@ -69,6 +71,7 @@ class ValorantApi {
     this.seasonsEndpoints = new SeasonsEndpoints(config);
     this.ceremoniesEndpoints = new CeremoniesEndpoints(config);
     this.gearEndpoints = new GearEndpoints(config);
+    this.themesEndpoints = new ThemesEndpoints(config);
   }
 }
 
