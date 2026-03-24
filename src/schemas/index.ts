@@ -1,4 +1,5 @@
 export * from './AgentSchemas';
+export * from './CeremonySchemas';
 export * from './WeaponSchemas';
 export * from './MapSchemas';
 export * from './ContractSchemas';
