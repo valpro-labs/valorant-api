@@ -24,4 +24,12 @@ describe('SpraysEndpoints', () => {
     await api.spraysEndpoints.getSprayByUuidV1('test-uuid');
     expect(mockedAxios.get).toHaveBeenCalledWith(expect.stringContaining('v1/sprays/test-uuid'));
   });
+
+  it('getSprayLevelByUuidV1 calls correct URL', async () => {
+    const api = new ValorantApi();
+    mockedAxios.get.mockResolvedValue({ data: { data: {}, status: '200' } });
+
+    await api.spraysEndpoints.getSprayLevelByUuidV1('test-uuid');
+    expect(mockedAxios.get).toHaveBeenCalledWith(expect.stringContaining('v1/sprays/levels/test-uuid'));
+  });
 });
