@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+/** Schema for version info. */
 export const VersionSchema = z.object({
   manifestId: z.string(),
   branch: z.string(),
@@ -10,4 +11,5 @@ export const VersionSchema = z.object({
   riotClientBuild: z.string(),
   buildDate: z.string().datetime().pipe(z.coerce.date()),
 });
+/** Version info data. */
 export type VersionResponse = z.infer<typeof VersionSchema>;

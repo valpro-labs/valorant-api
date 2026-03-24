@@ -23,31 +23,70 @@ import { CeremoniesEndpoints } from './endpoints/CeremoniesEndpoints';
 import { GearEndpoints } from './endpoints/GearEndpoints';
 import { ThemesEndpoints } from './endpoints/ThemesEndpoints';
 
+/**
+ * Main client for the Valorant API.
+ * Provides access to all available API endpoints through dedicated endpoint properties.
+ *
+ * @example
+ * ```ts
+ * import { ValorantApi } from '@valpro-labs/valorant-api';
+ *
+ * const api = new ValorantApi({ language: 'en-US' });
+ * const agents = await api.agentsEndpoints.getAgentsV1();
+ * ```
+ */
 class ValorantApi {
+  /** Endpoint for retrieving the current Valorant build version. */
   public versionEndpoint: VersionEndpoint;
+  /** Endpoints for retrieving map data. */
   public mapsEndpoints: MapsEndpoints;
+  /** Endpoints for retrieving agent data. */
   public agentsEndpoints: AgentsEndpoints;
+  /** Endpoints for retrieving weapon, skin, chroma, and level data. */
   public weaponsEndpoints: WeaponsEndpoints;
+  /** Endpoints for retrieving content tier (rarity) data. */
   public contentTierEndpoints: ContentTierEndpoints;
+  /** Endpoints for retrieving in-game currency data. */
   public currenciesEndpoints: CurrenciesEndpoints;
+  /** Endpoints for retrieving store bundle data. */
   public bundlesEndpoints: BundlesEndpoints;
+  /** Endpoints for retrieving mission data. */
   public missionsEndpoints: MissionsEndpoints;
+  /** Endpoints for retrieving objective data. */
   public objectivesEndpoints: ObjectivesEndpoints;
+  /** Endpoints for retrieving player card data. */
   public playerCardsEndpoints: PlayerCardsEndpoints;
+  /** Endpoints for retrieving player title data. */
   public playerTitlesEndpoints: PlayerTitlesEndpoints;
+  /** Endpoints for retrieving level border data. */
   public levelBordersEndpoints: LevelBordersEndpoints;
+  /** Endpoints for retrieving buddy (gun charm) data. */
   public buddiesEndpoints: BuddiesEndpoints;
+  /** Endpoints for retrieving spray data. */
   public spraysEndpoints: SpraysEndpoints;
+  /** Endpoints for retrieving competitive tier data. */
   public competitiveTiersEndpoints: CompetitiveTiersEndpoints;
+  /** Endpoints for retrieving flex data. */
   public flexEndpoints: FlexEndpoints;
+  /** Endpoints for retrieving game mode and equippable data. */
   public gameModesEndpoints: GameModesEndpoints;
+  /** Endpoints for retrieving contract data. */
   public contractsEndpoints: ContractsEndpoints;
+  /** Endpoints for retrieving event data. */
   public eventsEndpoints: EventsEndpoints;
+  /** Endpoints for retrieving season and competitive season data. */
   public seasonsEndpoints: SeasonsEndpoints;
+  /** Endpoints for retrieving ceremony data. */
   public ceremoniesEndpoints: CeremoniesEndpoints;
+  /** Endpoints for retrieving gear (armor) data. */
   public gearEndpoints: GearEndpoints;
+  /** Endpoints for retrieving theme data. */
   public themesEndpoints: ThemesEndpoints;
 
+  /**
+   * Creates a new Valorant API client.
+   * @param config - Optional configuration for the API client.
+   */
   constructor(config?: ValorantApiConfig) {
     this.versionEndpoint = new VersionEndpoint(config);
     this.mapsEndpoints = new MapsEndpoints(config);
