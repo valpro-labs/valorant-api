@@ -9,6 +9,7 @@ export * from './ContractsEndpoints';
 export * from './CurrenciesEndpoints';
 export * from './EventsEndpoints';
 export * from './FlexEndpoints';
+export * from './GearEndpoints';
 export * from './GameModesEndpoints';
 export * from './LevelBordersEndpoints';
 export * from './MapsEndpoints';

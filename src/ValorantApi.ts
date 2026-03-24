@@ -20,6 +20,7 @@ import { ContractsEndpoints } from './endpoints/ContractsEndpoints';
 import { EventsEndpoints } from './endpoints/EventsEndpoints';
 import { SeasonsEndpoints } from './endpoints/SeasonsEndpoints';
 import { CeremoniesEndpoints } from './endpoints/CeremoniesEndpoints';
+import { GearEndpoints } from './endpoints/GearEndpoints';
 
 class ValorantApi {
   public versionEndpoint: VersionEndpoint;
@@ -43,6 +44,7 @@ class ValorantApi {
   public eventsEndpoints: EventsEndpoints;
   public seasonsEndpoints: SeasonsEndpoints;
   public ceremoniesEndpoints: CeremoniesEndpoints;
+  public gearEndpoints: GearEndpoints;
 
   constructor(config?: ValorantApiConfig) {
     this.versionEndpoint = new VersionEndpoint(config);
@@ -66,6 +68,7 @@ class ValorantApi {
     this.eventsEndpoints = new EventsEndpoints(config);
     this.seasonsEndpoints = new SeasonsEndpoints(config);
     this.ceremoniesEndpoints = new CeremoniesEndpoints(config);
+    this.gearEndpoints = new GearEndpoints(config);
   }
 }
 
