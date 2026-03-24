@@ -1,6 +1,7 @@
 export * from './AgentsEndpoints';
 export * from './BaseEndpoint';
 export * from './BuddiesEndpoints';
+export * from './CeremoniesEndpoints';
 export * from './BundlesEndpoints';
 export * from './CompetitiveTiersEndpoints';
 export * from './ContentTierEndpoints';
