@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { LocalizedStringSchema } from './SharedSchemas';
 
+/** Schema for ADS (aim down sights) stats. */
 export const AdsStatsSchema = z.object({
   zoomMultiplier: z.number(),
   fireRate: z.number(),
@@ -8,20 +9,26 @@ export const AdsStatsSchema = z.object({
   burstCount: z.number().int(),
   firstBulletAccuracy: z.number(),
 });
+/** ADS stats data. */
 export type AdsStatsResponse = z.infer<typeof AdsStatsSchema>;
 
+/** Schema for alternate shotgun stats. */
 export const AltShotgunStatsSchema = z.object({
   shotgunPelletCount: z.number().int(),
   burstRate: z.number(),
 });
+/** Alternate shotgun stats data. */
 export type AltShotgunStatsResponse = z.infer<typeof AltShotgunStatsSchema>;
 
+/** Schema for air burst stats. */
 export const AirBurstStatsSchema = z.object({
   shotgunPelletCount: z.number().int(),
   burstDistance: z.number(),
 });
+/** Air burst stats data. */
 export type AirBurstStatsResponse = z.infer<typeof AirBurstStatsSchema>;
 
+/** Schema for a single damage range. */
 export const DamageRangeSchema = z.object({
   rangeStartMeters: z.number(),
   rangeEndMeters: z.number(),
@@ -29,8 +36,10 @@ export const DamageRangeSchema = z.object({
   bodyDamage: z.number(),
   legDamage: z.number(),
 });
+/** A single damage range's data. */
 export type DamageRangeResponse = z.infer<typeof DamageRangeSchema>;
 
+/** Schema for weapon stats. */
 export const WeaponStatsSchema = z.object({
   fireRate: z.number(),
   magazineSize: z.number().int(),
@@ -48,14 +57,18 @@ export const WeaponStatsSchema = z.object({
   airBurstStats: AirBurstStatsSchema,
   damageRanges: z.array(DamageRangeSchema),
 });
+/** Weapon stats data. */
 export type WeaponStatsResponse = z.infer<typeof WeaponStatsSchema>;
 
+/** Schema for a grid position. */
 export const GridPositionSchema = z.object({
   row: z.number().int(),
   column: z.number().int(),
 });
+/** A grid position's data. */
 export type GridPositionResponse = z.infer<typeof GridPositionSchema>;
 
+/** Schema for shop data. */
 export const ShopDataSchema = z.object({
   cost: z.number().int(),
   category: z.string(),
@@ -68,8 +81,10 @@ export const ShopDataSchema = z.object({
   newImage2: z.string(),
   assetPath: z.string(),
 });
+/** Shop data for a weapon. */
 export type ShopDataResponse = z.infer<typeof ShopDataSchema>;
 
+/** Schema for a single skin chroma. */
 export const ChromaSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
@@ -79,8 +94,10 @@ export const ChromaSchema = z.object({
   streamedVideo: z.string(),
   assetPath: z.string(),
 });
+/** A single skin chroma's data. */
 export type ChromaResponse = z.infer<typeof ChromaSchema>;
 
+/** Schema for a skin level item type. */
 export const LevelItemSchema = z.enum([
   'EEquippableSkinLevelItem::VFX',
   'EEquippableSkinLevelItem::Animation',
@@ -96,8 +113,10 @@ export const LevelItemSchema = z.enum([
   'EEquippableSkinLevelItem::AttackerDefenderSwap',
   'EEquippableSkinLevelItem::Randomizer',
 ]);
+/** A skin level item type value. */
 export type LevelItem = z.infer<typeof LevelItemSchema>;
 
+/** Schema for a single skin level. */
 export const LevelSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
@@ -106,8 +125,10 @@ export const LevelSchema = z.object({
   streamedVideo: z.string(),
   assetPath: z.string(),
 });
+/** A single skin level's data. */
 export type LevelResponse = z.infer<typeof LevelSchema>;
 
+/** Schema for a single weapon skin. */
 export const SkinSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
@@ -119,8 +140,10 @@ export const SkinSchema = z.object({
   chromas: z.array(ChromaSchema),
   levels: z.array(LevelSchema),
 });
+/** A single weapon skin's data. */
 export type SkinResponse = z.infer<typeof SkinSchema>;
 
+/** Schema for a single weapon. */
 export const WeaponSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
@@ -133,7 +156,10 @@ export const WeaponSchema = z.object({
   shopData: ShopDataSchema,
   skins: z.array(SkinSchema),
 });
+/** A single weapon's data. */
 export type WeaponResponse = z.infer<typeof WeaponSchema>;
 
+/** Schema for a list of weapons. */
 export const WeaponsSchema = z.array(WeaponSchema);
+/** A list of weapons. */
 export type WeaponsResponse = z.infer<typeof WeaponsSchema>;

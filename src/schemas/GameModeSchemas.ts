@@ -1,18 +1,23 @@
 import { z } from 'zod';
 import { LocalizedStringSchema } from './SharedSchemas';
 
+/** Schema for a single game feature override. */
 export const GameFeatureOverrideSchema = z.object({
   featureName: z.string(),
   state: z.boolean(),
 });
+/** A single game feature override's data. */
 export type GameFeatureOverrideResponse = z.infer<typeof GameFeatureOverrideSchema>;
 
+/** Schema for a single game rule boolean override. */
 export const GameRuleBoolOverrideSchema = z.object({
   ruleName: z.string(),
   state: z.boolean(),
 });
+/** A single game rule boolean override's data. */
 export type GameRuleBoolOverrideResponse = z.infer<typeof GameRuleBoolOverrideSchema>;
 
+/** Schema for a single game mode. */
 export const GameModeSchema = z.object({
   uuid: z.string().uuid(),
   displayName: LocalizedStringSchema,
@@ -32,7 +37,10 @@ export const GameModeSchema = z.object({
   listViewIconTall: z.string().nullable().optional(),
   assetPath: z.string(),
 });
+/** A single game mode's data. */
 export type GameModeResponse = z.infer<typeof GameModeSchema>;
 
+/** Schema for a list of game modes. */
 export const GameModesSchema = z.array(GameModeSchema);
+/** A list of game modes. */
 export type GameModesResponse = z.infer<typeof GameModesSchema>;
