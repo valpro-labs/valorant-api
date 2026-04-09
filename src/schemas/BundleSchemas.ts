@@ -11,6 +11,7 @@ export const BundleSchema = z.object({
   useBackgroundGradient: z.boolean(),
   displayIcon: z.string(),
   displayIcon2: z.string(),
+  displayIcon3: z.string(),
   verticalPromoImage: z.string(),
   assetPath: z.string(),
 });
