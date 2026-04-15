@@ -1,6 +1,12 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["../src/index.ts"],
+  "entryPoints": [
+    "../src/ValorantApi.ts",
+    "../src/endpoints",
+    "../src/schemas"
+  ],
+  "entryPointStrategy": "expand",
+  "exclude": ["**/index.ts"],
   "tsconfig": "../tsconfig.json",
   "plugin": ["typedoc-plugin-markdown"],
   "out": "content/docs/api",
@@ -19,5 +25,7 @@
   "typeDeclarationFormat": "table",
   "indexFormat": "table",
   "fileExtension": ".mdx",
-  "entryFileName": "index"
+  "entryFileName": "index",
+  "outputFileStrategy": "modules",
+  "flattenOutputFiles": true
 }

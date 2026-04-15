@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "npm run docs:api",
     "prebuild": "npm run docs:api",
-    "docs:api": "typedoc && node scripts/add-frontmatter.mjs",
+    "docs:api": "typedoc && node scripts/post-process.mjs",
     "build": "next build",
     "dev": "next dev",
     "start": "serve out",
