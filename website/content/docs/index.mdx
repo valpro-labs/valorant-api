@@ -1,0 +1,32 @@
+---
+title: Introduction
+description: Getting started with @valpro-labs/valorant-api
+---
+
+A typed TypeScript client for [valorant-api.com](https://valorant-api.com/) with full type safety powered by [Zod](https://zod.dev/).
+
+## Installation
+
+```bash
+npm install @valpro-labs/valorant-api
+```
+
+## Quick start
+
+```ts
+import { ValorantApi } from '@valpro-labs/valorant-api';
+
+const api = new ValorantApi({ language: 'en-US' });
+
+// Get all agents
+const agents = await api.agentsEndpoints.getAgentsV1();
+
+// Get current game version
+const version = await api.versionEndpoint.getVersionV1();
+```
+
+## API reference
+
+The sidebar contains the full auto-generated API reference, covering every endpoint class, method, and schema exported by the package. It is regenerated from the source JSDoc comments on every build, so it always matches the installed version.
+
+> This library isn't endorsed by Riot Games. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
