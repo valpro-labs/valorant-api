@@ -23,7 +23,8 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "test": "jest"
+    "test": "jest",
+    "docs": "typedoc"
   },
   "type": "commonjs",
   "dependencies": {
@@ -35,6 +36,7 @@
     "@types/node": "^25.3.0",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.6",
+    "typedoc": "^0.28.0",
     "typescript": "^5.9.3"
   }
 }

@@ -4,6 +4,8 @@
 
 A typed TypeScript client for [valorant-api.com](https://valorant-api.com/). This library provides easy access to Valorant game data with full TypeScript support.
 
+Full API reference is available at **[valpro-labs.github.io/valorant-api](https://valpro-labs.github.io/valorant-api/)**, auto-generated from source by [TypeDoc](https://typedoc.org/).
+
 ## Features
 
 - **Full Type Safety**: All responses are typed for a better developer experience.
