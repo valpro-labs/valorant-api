@@ -8,7 +8,7 @@
   "entryPointStrategy": "expand",
   "exclude": ["**/index.ts"],
   "tsconfig": "../tsconfig.json",
-  "plugin": ["typedoc-plugin-markdown"],
+  "plugin": ["typedoc-plugin-zod", "typedoc-plugin-markdown"],
   "out": "content/docs/api",
   "readme": "none",
   "hideGenerator": true,
