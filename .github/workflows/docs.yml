@@ -28,7 +28,15 @@ jobs:
         with:
           node-version: '24'
           cache: 'npm'
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            website/package-lock.json
+      # Install the library's runtime deps (axios, zod) — TypeDoc
+      # traverses ../src and needs to resolve those imports.
+      # --ignore-scripts skips the root `prepare` (tsc) which we don't need here.
+      - name: Install library deps for TypeDoc
+        working-directory: .
+        run: npm ci --ignore-scripts
       - run: npm ci
       - name: Build site (with GitHub Pages basePath)
         if: github.ref == 'refs/heads/main'
