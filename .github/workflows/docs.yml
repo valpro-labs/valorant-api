@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - 'claude/**'
   workflow_dispatch:
 
 permissions:
@@ -12,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -29,17 +30,30 @@ jobs:
           cache: 'npm'
           cache-dependency-path: website/package-lock.json
       - run: npm ci
-      - name: Build site
+      - name: Build site (with GitHub Pages basePath)
+        if: github.ref == 'refs/heads/main'
         env:
           NEXT_PUBLIC_BASE_PATH: /valorant-api
         run: npm run build
+      - name: Build site (preview, no basePath)
+        if: github.ref != 'refs/heads/main'
+        run: npm run build
+      - name: Upload downloadable preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-preview
+          path: website/out
+          retention-days: 14
       - uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main'
       - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
         with:
           path: website/out
 
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
