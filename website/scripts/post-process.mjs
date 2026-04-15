@@ -160,6 +160,39 @@ await indexAnchors();
 
 // ---------------------------------------------------- link-rewrite helpers
 
+/**
+ * Strip `### XxxSchema` sections (the Zod schema `const` entries) from a
+ * page. The response types already document the shape; the schema consts
+ * are redundant noise for readers who aren't writing Zod validators.
+ *
+ * Also drops the "### Type Aliases / ### Variables" group headings left
+ * empty after stripping, plus the "***" horizontal rules TypeDoc inserts
+ * between entries.
+ */
+function stripSchemaSections(content) {
+  const lines = content.split('\n');
+  const out = [];
+  let skipping = false;
+  for (const line of lines) {
+    // Start skipping at any "### XxxSchema" heading
+    if (/^###\s+\w+Schemas?\s*$/.test(line)) {
+      skipping = true;
+      continue;
+    }
+    // Stop skipping when we hit the next heading at ### or higher
+    if (skipping && /^#{1,3}\s+/.test(line)) {
+      skipping = false;
+    }
+    if (skipping) continue;
+    out.push(line);
+  }
+  // Collapse now-orphaned "***" separators and excessive blank runs
+  return out
+    .join('\n')
+    .replace(/(\n\s*\*\*\*\s*\n)+(?=\n*## )/g, '\n\n')
+    .replace(/\n{3,}/g, '\n\n');
+}
+
 function rewriteLinks(content, ownTargetFile) {
   // Matches markdown links: [text](target.mdx#anchor) or (target.mdx)
   return content.replace(
@@ -243,8 +276,11 @@ for (const [endpointBase, schemas] of mergedSchemas) {
 
 await Promise.all(
   [...pagesOut.entries()].map(async ([file, page]) => {
+    // Drop the redundant `### XxxSchema` const entries — the paired
+    // Response type already documents the shape.
+    const cleaned = stripSchemaSections(page.body);
     // Rewrite internal links so merged-in schema types resolve correctly
-    const body = rewriteLinks(page.body, file);
+    const body = rewriteLinks(cleaned, file);
 
     const fm = [
       '---',
