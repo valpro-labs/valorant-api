@@ -193,6 +193,71 @@ function stripSchemaSections(content) {
     .replace(/\n{3,}/g, '\n\n');
 }
 
+/**
+ * Read the endpoint's .ts source and extract the set of type names
+ * that appear directly in method return signatures (e.g. `Promise<AgentResponse>`).
+ * Any Response type NOT in this set is a sub-type and can be hidden.
+ */
+async function getReturnedTypes(endpointBase) {
+  const srcDir = fileURLToPath(new URL('../../src/endpoints/', import.meta.url));
+  try {
+    const src = await readFile(join(srcDir, `${endpointBase}.ts`), 'utf8');
+    const types = new Set();
+    for (const m of src.matchAll(/Promise<(\w+?)(?:\[])?>/g)) {
+      types.add(m[1]);
+    }
+    return types;
+  } catch {
+    return null; // file not found — skip filtering
+  }
+}
+
+/**
+ * In the merged "types" section (after `## Xxx types`), strip any
+ * `### Xxx` entry whose name does NOT appear in a method return
+ * signature. These are sub-types (e.g. AbilityResponse, LevelItem)
+ * whose fields are already visible inside their parent type's table.
+ */
+function stripSubTypes(content, keepTypes) {
+  if (!keepTypes || keepTypes.size === 0) return content;
+  const lines = content.split('\n');
+  const out = [];
+  let inTypesSection = false;
+  let skipping = false;
+  for (const line of lines) {
+    // Detect entering the merged types section
+    if (/^## .+ types\s*$/.test(line)) {
+      inTypesSection = true;
+      out.push(line);
+      continue;
+    }
+    // Leaving the types section when we hit a non-types H2
+    if (/^## /.test(line) && !/types\s*$/.test(line)) {
+      inTypesSection = false;
+      skipping = false;
+    }
+    if (inTypesSection) {
+      const headingMatch = line.match(/^###\s+(\w+)\s*$/);
+      if (headingMatch) {
+        if (keepTypes.has(headingMatch[1])) {
+          skipping = false;
+        } else {
+          skipping = true;
+          continue;
+        }
+      } else if (skipping && /^#{1,3}\s+/.test(line)) {
+        skipping = false;
+      }
+    }
+    if (skipping) continue;
+    out.push(line);
+  }
+  return out
+    .join('\n')
+    .replace(/(\n\s*\*\*\*\s*\n)+(?=\n*## )/g, '\n\n')
+    .replace(/\n{3,}/g, '\n\n');
+}
+
 function rewriteLinks(content, ownTargetFile) {
   // Matches markdown links: [text](target.mdx#anchor) or (target.mdx)
   return content.replace(
@@ -276,11 +341,14 @@ for (const [endpointBase, schemas] of mergedSchemas) {
 
 await Promise.all(
   [...pagesOut.entries()].map(async ([file, page]) => {
-    // Drop the redundant `### XxxSchema` const entries — the paired
-    // Response type already documents the shape.
-    const cleaned = stripSchemaSections(page.body);
+    // Drop the redundant `### XxxSchema` const entries
+    const noSchemas = stripSchemaSections(page.body);
+    // Drop sub-type Response entries whose fields are already visible
+    // inside their parent type's expanded table
+    const returnedTypes = await getReturnedTypes(page.originalBase);
+    const trimmed = stripSubTypes(noSchemas, returnedTypes);
     // Rewrite internal links so merged-in schema types resolve correctly
-    const body = rewriteLinks(cleaned, file);
+    const body = rewriteLinks(trimmed, file);
 
     const fm = [
       '---',
