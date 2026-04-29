@@ -3,7 +3,7 @@ import { z } from 'zod';
 /** Schema for a single spray level. */
 export const SprayLevelSchema = z.object({
   uuid: z.string().uuid(),
-  sprayUuid: z.string().uuid(),
+  sprayLevel: z.number(),
   displayName: z.string(),
   displayIcon: z.string().nullable(),
   assetPath: z.string(),
@@ -17,7 +17,8 @@ export const SpraySchema = z.object({
   displayName: z.string(),
   category: z.string().nullable(),
   themeUuid: z.string().uuid().nullable(),
-  isNull: z.boolean(),
+  isNullSpray: z.boolean(),
+  hideIfNotOwned: z.boolean(),
   displayIcon: z.string().nullable(),
   fullIcon: z.string().nullable(),
   fullTransparentIcon: z.string().nullable(),
