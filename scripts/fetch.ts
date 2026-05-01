@@ -187,6 +187,11 @@ async function run(): Promise<void> {
 
       let displayName = data.displayName;
       switch (name) {
+        case 'skirmish2v2':
+          displayName = Object.fromEntries(
+            Object.entries(data.displayName).map(([locale, val]) => [locale, `${val} 2v2`]),
+          ) as Record<ValorantLocale, string>;
+          break;
         case 'skirmishascension2v2':
           displayName = Object.fromEntries(
             Object.entries(data.displayName).map(([locale, val]) => [locale, `${val} 2v2`]),
