@@ -34,10 +34,20 @@ export const GameModeFallbackIds: Record<GameModeFallbackName, string> = {
   bot: 'd2d0f229-4514-517a-b10a-aaa0ef0d4a67',
 };
 
+export const GAME_MODE_FALLBACK_BASE_URL =
+  'https://raw.githubusercontent.com/valpro-labs/valorant-api/main/data';
 export const GAME_MODE_FALLBACK_URL =
-  'https://raw.githubusercontent.com/valpro-labs/valorant-api/main/data/queues.json';
+  `${GAME_MODE_FALLBACK_BASE_URL}/queues.json`;
+export const GAME_MODE_FALLBACK_ICON_BASE_URL =
+  `${GAME_MODE_FALLBACK_BASE_URL}/icons/gamemodes`;
 
 export let gameModeFallbacks = {} as GameModeFallbackMap;
+
+export interface ResolvedGameModeFallback {
+  id: string;
+  displayName: string | null;
+  iconUrl: string;
+}
 
 const gameModeFallbackIdToName: Record<string, GameModeFallbackName> = Object.fromEntries(
   Object.entries(GameModeFallbackIds).map(([name, id]) => [id, name as GameModeFallbackName]),
@@ -48,47 +58,33 @@ export async function initGameModeFallback(): Promise<void> {
   gameModeFallbacks = response.data;
 }
 
-function resolveGameModeFallbackName(queueId: string): GameModeFallbackName | undefined {
-  if (queueId in GameModeFallbackIds) {
-    return queueId as GameModeFallbackName;
-  }
-
-  return gameModeFallbackIdToName[queueId];
-}
-
-export function getGameModeFallbackData(queueId: string): GameModeFallbackData | null {
-  const name = resolveGameModeFallbackName(queueId);
-  return name ? gameModeFallbacks[name] ?? null : null;
-}
-
-export function getGameModeFallbackDisplayName(
+export function resolveGameModeFallback(
   queueId: string,
   locale: ValorantLocale = 'en-US',
-): string | null {
-  const data = getGameModeFallbackData(queueId);
-  if (!data) {
-    return null;
-  }
-
-  return data.displayName[locale] ?? data.displayName['en-US'] ?? null;
-}
-
-export function getGameModeFallbackIconUrl(queueId: string): string {
+): ResolvedGameModeFallback {
   const id = queueId in GameModeFallbackIds
     ? GameModeFallbackIds[queueId as GameModeFallbackName]
     : queueId;
+  const name = queueId in GameModeFallbackIds
+    ? queueId as GameModeFallbackName
+    : gameModeFallbackIdToName[queueId];
+  const data = name ? gameModeFallbacks[name] ?? null : null;
 
-  return `https://media.valorant-api.com/gamemodes/${id}/displayicon.png`;
+  return {
+    id,
+    displayName: data?.displayName[locale] ?? data?.displayName['en-US'] ?? null,
+    iconUrl: `${GAME_MODE_FALLBACK_ICON_BASE_URL}/${id}/displayicon.png`,
+  };
 }
 
 export const GameModeFallback = {
   ids: GameModeFallbackIds,
+  baseUrl: GAME_MODE_FALLBACK_BASE_URL,
   url: GAME_MODE_FALLBACK_URL,
+  iconBaseUrl: GAME_MODE_FALLBACK_ICON_BASE_URL,
   get data() {
     return gameModeFallbacks;
   },
   init: initGameModeFallback,
-  getData: getGameModeFallbackData,
-  getDisplayName: getGameModeFallbackDisplayName,
-  getIconUrl: getGameModeFallbackIconUrl,
+  resolve: resolveGameModeFallback,
 };
