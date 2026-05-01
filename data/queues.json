@@ -263,6 +263,54 @@
 			"zh-TW": "火線交鋒"
 		}
 	},
+	"skirmishascension2v2": {
+		"id": "d08c45fe-4415-edcf-65a3-45885cc4349b",
+		"iconPath": "d08c45fe-4415-edcf-65a3-45885cc4349b/displayicon.png",
+		"displayName": {
+			"es-MX": "Escaramuza: Ascensión",
+			"it-IT": "Schermaglia: Ascensione",
+			"ar-AE": "المناوشة: الارتقاء",
+			"es-ES": "Escaramuza: Ascensión",
+			"en-US": "Skirmish: Ascension",
+			"de-DE": "Skirmish: Ascension",
+			"ja-JP": "スカーミッシュ：Ascension",
+			"ko-KR": "초월 난투",
+			"fr-FR": "Escarmouche : Ascension",
+			"id-ID": "Skirmish: Ascension",
+			"pl-PL": "Potyczka: Wyniesienie",
+			"pt-BR": "Duelo: Ascensão",
+			"th-TH": "Skirmish: Ascension",
+			"ru-RU": "Столкновение: возвышение",
+			"tr-TR": "ÇARPIŞMA: YÜKSELİŞ",
+			"vi-VN": "Skirmish: Thăng Hoa",
+			"zh-CN": "斗牛：晋升赛",
+			"zh-TW": "火線交鋒：晉級賽"
+		}
+	},
+	"skirmishascension1v1": {
+		"id": "d08c45fe-4415-edcf-65a3-45885cc4349b",
+		"iconPath": "d08c45fe-4415-edcf-65a3-45885cc4349b/displayicon.png",
+		"displayName": {
+			"es-MX": "Escaramuza: Ascensión",
+			"it-IT": "Schermaglia: Ascensione",
+			"ar-AE": "المناوشة: الارتقاء",
+			"es-ES": "Escaramuza: Ascensión",
+			"en-US": "Skirmish: Ascension",
+			"de-DE": "Skirmish: Ascension",
+			"ja-JP": "スカーミッシュ：Ascension",
+			"ko-KR": "초월 난투",
+			"fr-FR": "Escarmouche : Ascension",
+			"id-ID": "Skirmish: Ascension",
+			"pl-PL": "Potyczka: Wyniesienie",
+			"pt-BR": "Duelo: Ascensão",
+			"th-TH": "Skirmish: Ascension",
+			"ru-RU": "Столкновение: возвышение",
+			"tr-TR": "ÇARPIŞMA: YÜKSELİŞ",
+			"vi-VN": "Skirmish: Thăng Hoa",
+			"zh-CN": "斗牛：晋升赛",
+			"zh-TW": "火線交鋒：晉級賽"
+		}
+	},
 	"ggteam": {
 		"id": "a4ed6518-4741-6dcb-35bd-f884aecdc859",
 		"iconPath": "a4ed6518-4741-6dcb-35bd-f884aecdc859/displayicon.png",

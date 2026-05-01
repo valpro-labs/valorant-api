@@ -10,6 +10,8 @@ export type GameModeFallbackName =
   | 'valaram'
   | 'hurm'
   | 'skirmish2v2'
+  | 'skirmishascension2v2'
+  | 'skirmishascension1v1'
   | 'ggteam'
   | 'dodgeball'
   | 'bot';
@@ -37,6 +39,8 @@ export const GameModeFallbackIds: Record<GameModeFallbackName, string> = {
   valaram: '1cd8901f-47af-49cb-d758-e2afd0eb2a39',
   hurm: 'e086db66-47fd-e791-ca81-06a645ac7661',
   skirmish2v2: '0e9805d8-4af6-5ffb-f467-55806a6bc484',
+  skirmishascension2v2: 'd08c45fe-4415-edcf-65a3-45885cc4349b',
+  skirmishascension1v1: 'd08c45fe-4415-edcf-65a3-45885cc4349b',
   ggteam: 'a4ed6518-4741-6dcb-35bd-f884aecdc859',
   dodgeball: '1a4a3fd5-4966-62cb-7fe4-15b0317f5c80',
   bot: 'd2d0f229-4514-517a-b10a-aaa0ef0d4a67',
