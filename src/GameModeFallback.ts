@@ -67,6 +67,7 @@ export const GAME_MODE_FALLBACK_QUERYABLE_IDS_URL =
   `${GAME_MODE_FALLBACK_BASE_URL}/queryable-queues.json`;
 
 export let gameModeFallbacks = {} as GameModeFallbackMap;
+export let gameModeQueryableIds: GameModeFilterId[] = [];
 
 export interface ResolvedGameModeFallback {
   id: string;
@@ -78,14 +79,13 @@ const gameModeFallbackIdToName: Record<string, GameModeFallbackName> = Object.fr
   Object.entries(GameModeFallbackIds).map(([name, id]) => [id, name as GameModeFallbackName]),
 ) as Record<string, GameModeFallbackName>;
 
-export async function initGameModeFallback(): Promise<void> {
-  const response = await axios.get<GameModeFallbackMap>(GAME_MODE_FALLBACK_URL);
-  gameModeFallbacks = response.data;
-}
-
-export async function fetchQueryableIds(): Promise<GameModeFilterId[]> {
-  const response = await axios.get<GameModeFilterId[]>(GAME_MODE_FALLBACK_QUERYABLE_IDS_URL);
-  return response.data;
+export async function fetchAndCacheGameModeData(): Promise<void> {
+  const [fallbacksResponse, queryableIdsResponse] = await Promise.all([
+    axios.get<GameModeFallbackMap>(GAME_MODE_FALLBACK_URL),
+    axios.get<GameModeFilterId[]>(GAME_MODE_FALLBACK_QUERYABLE_IDS_URL),
+  ]);
+  gameModeFallbacks = fallbacksResponse.data;
+  gameModeQueryableIds = queryableIdsResponse.data;
 }
 
 export function resolveGameModeFallback(
@@ -117,10 +117,12 @@ export const GameModeFallback = {
   url: GAME_MODE_FALLBACK_URL,
   iconBaseUrl: GAME_MODE_FALLBACK_ICON_BASE_URL,
   queryableIdsUrl: GAME_MODE_FALLBACK_QUERYABLE_IDS_URL,
-  get data() {
+  get fallbacksData() {
     return gameModeFallbacks;
   },
-  init: initGameModeFallback,
-  fetchQueryableIds,
+  get queryableIdsData() {
+    return gameModeQueryableIds;
+  },
+  init: fetchAndCacheGameModeData,
   resolve: resolveGameModeFallback,
 };
