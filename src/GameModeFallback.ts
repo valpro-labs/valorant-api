@@ -82,6 +82,11 @@ export async function initGameModeFallback(): Promise<void> {
   gameModeFallbacks = response.data;
 }
 
+export async function fetchQueryableIds(): Promise<GameModeFilterId[]> {
+  const response = await axios.get<GameModeFilterId[]>(GAME_MODE_FALLBACK_QUERYABLE_IDS_URL);
+  return response.data;
+}
+
 export function resolveGameModeFallback(
   queueId: string,
   locale: ValorantLocale = 'en-US',
@@ -115,5 +120,6 @@ export const GameModeFallback = {
     return gameModeFallbacks;
   },
   init: initGameModeFallback,
+  fetchQueryableIds,
   resolve: resolveGameModeFallback,
 };
