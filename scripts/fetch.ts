@@ -185,10 +185,24 @@ async function run(): Promise<void> {
         }
       }
 
+      let displayName = data.displayName;
+      switch (name) {
+        case 'skirmishascension2v2':
+          displayName = Object.fromEntries(
+            Object.entries(data.displayName).map(([locale, val]) => [locale, `${val} 2v2`]),
+          ) as Record<ValorantLocale, string>;
+          break;
+        case 'skirmishascension1v1':
+          displayName = Object.fromEntries(
+            Object.entries(data.displayName).map(([locale, val]) => [locale, `${val} 1v1`]),
+          ) as Record<ValorantLocale, string>;
+          break;
+      }
+
       const entry: GameModeFallbackData = {
         id,
         iconPath: hasDisplayIcon ? `${id}/displayicon.png` : null,
-        displayName: data.displayName,
+        displayName,
       };
       return [name, entry] as [string, GameModeFallbackData];
     }),
