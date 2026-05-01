@@ -4,11 +4,13 @@ import * as path from 'node:path';
 
 import {
   GameModeFallbackIds,
+  GameModeFallbackQueryableIds,
   type GameModeFallbackData,
 } from '../src/GameModeFallback';
 import type { ValorantLocale } from '../src/endpoints/BaseEndpoint';
 
 const OUTPUT_PATH = path.join(__dirname, '..', 'data', 'queues.json');
+const QUERYABLE_OUTPUT_PATH = path.join(__dirname, '..', 'data', 'queryable-queues.json');
 const ICONS_DIR = path.join(__dirname, '..', 'data', 'icons', 'gamemodes');
 const ICON_FILENAMES = ['displayicon.png', 'listviewicontall.png'] as const;
 
@@ -90,6 +92,13 @@ async function run(): Promise<void> {
   const queues = Object.fromEntries(results) as Record<string, GameModeFallbackData>;
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(queues, null, '\t') + '\n', 'utf8');
   console.log('Written to', OUTPUT_PATH);
+
+  fs.writeFileSync(
+    QUERYABLE_OUTPUT_PATH,
+    JSON.stringify(GameModeFallbackQueryableIds, null, '\t') + '\n',
+    'utf8',
+  );
+  console.log('Written to', QUERYABLE_OUTPUT_PATH);
 }
 
 run().catch((error: unknown) => {

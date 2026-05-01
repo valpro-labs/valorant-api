@@ -14,6 +14,12 @@ export type GameModeFallbackName =
   | 'dodgeball'
   | 'bot';
 
+export type GameModeFilterId =
+  | 'all'
+  | 'competitive'
+  | 'custom'
+  | GameModeFallbackName;
+
 export type GameModeFallbackMap = Record<string, GameModeFallbackData>;
 
 export interface GameModeFallbackData {
@@ -34,12 +40,29 @@ export const GameModeFallbackIds: Record<GameModeFallbackName, string> = {
   bot: 'd2d0f229-4514-517a-b10a-aaa0ef0d4a67',
 };
 
+export const GameModeFallbackQueryableIds: GameModeFilterId[] = [
+  'all',
+  'unrated',
+  'competitive',
+  'swiftplay',
+  'deathmatch',
+  'hurm',
+  'spikerush',
+  'ggteam',
+  'valaram',
+  'skirmish2v2',
+  'dodgeball',
+  'custom',
+];
+
 export const GAME_MODE_FALLBACK_BASE_URL =
   'https://raw.githubusercontent.com/valpro-labs/valorant-api/main/data';
 export const GAME_MODE_FALLBACK_URL =
   `${GAME_MODE_FALLBACK_BASE_URL}/queues.json`;
 export const GAME_MODE_FALLBACK_ICON_BASE_URL =
   `${GAME_MODE_FALLBACK_BASE_URL}/icons/gamemodes`;
+export const GAME_MODE_FALLBACK_QUERYABLE_IDS_URL =
+  `${GAME_MODE_FALLBACK_BASE_URL}/queryable-queues.json`;
 
 export let gameModeFallbacks = {} as GameModeFallbackMap;
 
@@ -79,9 +102,11 @@ export function resolveGameModeFallback(
 
 export const GameModeFallback = {
   ids: GameModeFallbackIds,
+  queryableIds: GameModeFallbackQueryableIds,
   baseUrl: GAME_MODE_FALLBACK_BASE_URL,
   url: GAME_MODE_FALLBACK_URL,
   iconBaseUrl: GAME_MODE_FALLBACK_ICON_BASE_URL,
+  queryableIdsUrl: GAME_MODE_FALLBACK_QUERYABLE_IDS_URL,
   get data() {
     return gameModeFallbacks;
   },
