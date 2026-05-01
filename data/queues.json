@@ -47,6 +47,54 @@
 			"zh-TW": "競技模式"
 		}
 	},
+	"custom": {
+		"id": "custom",
+		"iconPath": null,
+		"displayName": {
+			"ar-AE": "مخصص",
+			"de-DE": "Benutzerdefiniert",
+			"en-US": "Custom",
+			"es-ES": "Personalizada",
+			"es-MX": "Personalizada",
+			"fr-FR": "Personnalisé",
+			"id-ID": "Kustom",
+			"it-IT": "Personalizzata",
+			"ja-JP": "カスタム",
+			"ko-KR": "사용자 설정",
+			"pl-PL": "Niestandardowy",
+			"pt-BR": "Personalizado",
+			"ru-RU": "Пользовательский",
+			"th-TH": "กำหนดเอง",
+			"tr-TR": "Özel",
+			"vi-VN": "Tùy Chỉnh",
+			"zh-CN": "自定义",
+			"zh-TW": "自訂"
+		}
+	},
+	"unknown": {
+		"id": "unknown",
+		"iconPath": null,
+		"displayName": {
+			"ar-AE": "غير معروف",
+			"de-DE": "Unbekannt",
+			"en-US": "Unknown",
+			"es-ES": "Desconocido",
+			"es-MX": "Desconocido",
+			"fr-FR": "Inconnu",
+			"id-ID": "Tidak diketahui",
+			"it-IT": "Sconosciuto",
+			"ja-JP": "不明",
+			"ko-KR": "알 수 없음",
+			"pl-PL": "Nieznany",
+			"pt-BR": "Desconhecido",
+			"ru-RU": "Неизвестно",
+			"th-TH": "ไม่ทราบ",
+			"tr-TR": "Bilinmiyor",
+			"vi-VN": "Không xác định",
+			"zh-CN": "未知",
+			"zh-TW": "未知"
+		}
+	},
 	"unrated": {
 		"id": "96bd3920-4f36-d026-2b28-c683eb0bcac5",
 		"iconPath": "96bd3920-4f36-d026-2b28-c683eb0bcac5/displayicon.png",
@@ -285,54 +333,6 @@
 			"vi-VN": "Đấu Với Máy",
 			"zh-CN": "人机比赛",
 			"zh-TW": "機器人對戰"
-		}
-	},
-	"custom": {
-		"id": "custom",
-		"iconPath": null,
-		"displayName": {
-			"ar-AE": "مخصص",
-			"de-DE": "Benutzerdefiniert",
-			"en-US": "Custom",
-			"es-ES": "Personalizada",
-			"es-MX": "Personalizada",
-			"fr-FR": "Personnalisé",
-			"id-ID": "Kustom",
-			"it-IT": "Personalizzata",
-			"ja-JP": "カスタム",
-			"ko-KR": "사용자 설정",
-			"pl-PL": "Niestandardowy",
-			"pt-BR": "Personalizado",
-			"ru-RU": "Пользовательский",
-			"th-TH": "กำหนดเอง",
-			"tr-TR": "Özel",
-			"vi-VN": "Tùy Chỉnh",
-			"zh-CN": "自定义",
-			"zh-TW": "自訂"
-		}
-	},
-	"unknown": {
-		"id": "unknown",
-		"iconPath": null,
-		"displayName": {
-			"ar-AE": "غير معروف",
-			"de-DE": "Unbekannt",
-			"en-US": "Unknown",
-			"es-ES": "Desconocido",
-			"es-MX": "Desconocido",
-			"fr-FR": "Inconnu",
-			"id-ID": "Tidak diketahui",
-			"it-IT": "Sconosciuto",
-			"ja-JP": "不明",
-			"ko-KR": "알 수 없음",
-			"pl-PL": "Nieznany",
-			"pt-BR": "Desconhecido",
-			"ru-RU": "Неизвестно",
-			"th-TH": "ไม่ทราบ",
-			"tr-TR": "Bilinmiyor",
-			"vi-VN": "Không xác định",
-			"zh-CN": "未知",
-			"zh-TW": "未知"
 		}
 	}
 }
