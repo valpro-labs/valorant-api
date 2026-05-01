@@ -17,6 +17,7 @@ const ICON_FILENAMES = ['displayicon.png', 'listviewicontall.png'] as const;
 const EXTRA_QUEUE_DATA: Record<string, GameModeFallbackData> = {
   all: {
     id: 'all',
+    iconPath: null,
     displayName: {
       'ar-AE': 'الكل',
       'de-DE': 'Alle',
@@ -40,6 +41,7 @@ const EXTRA_QUEUE_DATA: Record<string, GameModeFallbackData> = {
   },
   competitive: {
     id: 'competitive',
+    iconPath: null,
     displayName: {
       'ar-AE': 'التنافسي',
       'de-DE': 'Kompetitiv',
@@ -63,6 +65,7 @@ const EXTRA_QUEUE_DATA: Record<string, GameModeFallbackData> = {
   },
   custom: {
     id: 'custom',
+    iconPath: null,
     displayName: {
       'ar-AE': 'مخصص',
       'de-DE': 'Benutzerdefiniert',
@@ -86,6 +89,7 @@ const EXTRA_QUEUE_DATA: Record<string, GameModeFallbackData> = {
   },
   unknown: {
     id: 'unknown',
+    iconPath: null,
     displayName: {
       'ar-AE': 'غير معروف',
       'de-DE': 'Unbekannt',
@@ -166,6 +170,7 @@ async function run(): Promise<void> {
       const iconDir = path.join(ICONS_DIR, id);
       fs.mkdirSync(iconDir, { recursive: true });
 
+      let hasDisplayIcon = false;
       for (const filename of ICON_FILENAMES) {
         const ok = await downloadFile(
           `https://media.valorant-api.com/gamemodes/${id}/${filename}`,
@@ -174,12 +179,17 @@ async function run(): Promise<void> {
 
         if (ok) {
           console.log(`Downloaded ${name}/${filename}`);
+          if (filename === 'displayicon.png') hasDisplayIcon = true;
         } else {
           console.warn(`Skipped ${name}/${filename}`);
         }
       }
 
-      const entry: GameModeFallbackData = { id, displayName: data.displayName };
+      const entry: GameModeFallbackData = {
+        id,
+        iconPath: hasDisplayIcon ? `${id}/displayicon.png` : null,
+        displayName: data.displayName,
+      };
       return [name, entry] as [string, GameModeFallbackData];
     }),
   );
