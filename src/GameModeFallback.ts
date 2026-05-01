@@ -57,6 +57,8 @@ export const GameModeFallbackQueryableIds: GameModeFilterId[] = [
   'ggteam',
   'valaram',
   'skirmish2v2',
+	'skirmishascension2v2',
+  'skirmishascension1v1',
   'dodgeball',
   'custom',
 ];
