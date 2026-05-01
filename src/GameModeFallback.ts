@@ -18,6 +18,7 @@ export type GameModeFilterId =
   | 'all'
   | 'competitive'
   | 'custom'
+  | 'unknown'
   | GameModeFallbackName;
 
 export type GameModeFallbackMap = Record<string, GameModeFallbackData>;
@@ -91,7 +92,10 @@ export function resolveGameModeFallback(
   const name = queueId in GameModeFallbackIds
     ? queueId as GameModeFallbackName
     : gameModeFallbackIdToName[queueId];
-  const data = name ? gameModeFallbacks[name] ?? null : null;
+  const fallbackKey = queueId in gameModeFallbacks
+    ? queueId
+    : name ?? 'unknown';
+  const data = gameModeFallbacks[fallbackKey] ?? null;
 
   return {
     id,
