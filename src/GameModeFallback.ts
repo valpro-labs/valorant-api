@@ -26,6 +26,7 @@ export type GameModeFallbackMap = Record<string, GameModeFallbackData>;
 export interface GameModeFallbackData {
   id: string;
   displayName: Record<ValorantLocale, string>;
+  iconPath: string | null;
 }
 
 export const GameModeFallbackIds: Record<GameModeFallbackName, string> = {
@@ -70,7 +71,7 @@ export let gameModeFallbacks = {} as GameModeFallbackMap;
 export interface ResolvedGameModeFallback {
   id: string;
   displayName: string | null;
-  iconUrl: string;
+  iconUrl: string | null;
 }
 
 const gameModeFallbackIdToName: Record<string, GameModeFallbackName> = Object.fromEntries(
@@ -105,7 +106,7 @@ export function resolveGameModeFallback(
   return {
     id,
     displayName: data?.displayName[locale] ?? data?.displayName['en-US'] ?? null,
-    iconUrl: `${GAME_MODE_FALLBACK_ICON_BASE_URL}/${id}/displayicon.png`,
+    iconUrl: data?.iconPath != null ? `${GAME_MODE_FALLBACK_ICON_BASE_URL}/${data.iconPath}` : null,
   };
 }
 

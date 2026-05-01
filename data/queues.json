@@ -1,6 +1,7 @@
 {
 	"all": {
 		"id": "all",
+		"iconPath": null,
 		"displayName": {
 			"ar-AE": "الكل",
 			"de-DE": "Alle",
@@ -24,6 +25,7 @@
 	},
 	"competitive": {
 		"id": "competitive",
+		"iconPath": null,
 		"displayName": {
 			"ar-AE": "التنافسي",
 			"de-DE": "Kompetitiv",
@@ -47,6 +49,7 @@
 	},
 	"unrated": {
 		"id": "96bd3920-4f36-d026-2b28-c683eb0bcac5",
+		"iconPath": "96bd3920-4f36-d026-2b28-c683eb0bcac5/displayicon.png",
 		"displayName": {
 			"es-MX": "Estándar",
 			"it-IT": "Standard",
@@ -70,6 +73,7 @@
 	},
 	"swiftplay": {
 		"id": "5d0f264b-4ebe-cc63-c147-809e1374484b",
+		"iconPath": "5d0f264b-4ebe-cc63-c147-809e1374484b/displayicon.png",
 		"displayName": {
 			"es-MX": "Swiftplay",
 			"it-IT": "Partita rapida",
@@ -93,6 +97,7 @@
 	},
 	"deathmatch": {
 		"id": "a8790ec5-4237-f2f0-e93b-08a8e89865b2",
+		"iconPath": "a8790ec5-4237-f2f0-e93b-08a8e89865b2/displayicon.png",
 		"displayName": {
 			"es-MX": "Deathmatch",
 			"it-IT": "Deathmatch",
@@ -116,6 +121,7 @@
 	},
 	"spikerush": {
 		"id": "e921d1e6-416b-c31f-1291-74930c330b7b",
+		"iconPath": "e921d1e6-416b-c31f-1291-74930c330b7b/displayicon.png",
 		"displayName": {
 			"es-MX": "Spike Rush",
 			"it-IT": "Assalto Spike",
@@ -139,6 +145,7 @@
 	},
 	"valaram": {
 		"id": "1cd8901f-47af-49cb-d758-e2afd0eb2a39",
+		"iconPath": "1cd8901f-47af-49cb-d758-e2afd0eb2a39/displayicon.png",
 		"displayName": {
 			"es-MX": "All Random One Site",
 			"it-IT": "All Random One Site",
@@ -162,6 +169,7 @@
 	},
 	"hurm": {
 		"id": "e086db66-47fd-e791-ca81-06a645ac7661",
+		"iconPath": "e086db66-47fd-e791-ca81-06a645ac7661/displayicon.png",
 		"displayName": {
 			"es-MX": "Deathmatch Definitivo",
 			"it-IT": "Deathmatch a squadre",
@@ -185,6 +193,7 @@
 	},
 	"skirmish2v2": {
 		"id": "0e9805d8-4af6-5ffb-f467-55806a6bc484",
+		"iconPath": "0e9805d8-4af6-5ffb-f467-55806a6bc484/displayicon.png",
 		"displayName": {
 			"es-MX": "Escaramuza",
 			"it-IT": "Schermaglia",
@@ -208,6 +217,7 @@
 	},
 	"ggteam": {
 		"id": "a4ed6518-4741-6dcb-35bd-f884aecdc859",
+		"iconPath": "a4ed6518-4741-6dcb-35bd-f884aecdc859/displayicon.png",
 		"displayName": {
 			"es-MX": "Carrera de Armas",
 			"it-IT": "Corsa alle armi",
@@ -231,6 +241,7 @@
 	},
 	"dodgeball": {
 		"id": "1a4a3fd5-4966-62cb-7fe4-15b0317f5c80",
+		"iconPath": "1a4a3fd5-4966-62cb-7fe4-15b0317f5c80/displayicon.png",
 		"displayName": {
 			"es-MX": "Quemados",
 			"it-IT": "Eliminazione",
@@ -254,6 +265,7 @@
 	},
 	"bot": {
 		"id": "d2d0f229-4514-517a-b10a-aaa0ef0d4a67",
+		"iconPath": "d2d0f229-4514-517a-b10a-aaa0ef0d4a67/displayicon.png",
 		"displayName": {
 			"es-MX": "Partida de Bots",
 			"it-IT": "Partita con i bot",
@@ -277,6 +289,7 @@
 	},
 	"custom": {
 		"id": "custom",
+		"iconPath": null,
 		"displayName": {
 			"ar-AE": "مخصص",
 			"de-DE": "Benutzerdefiniert",
@@ -300,6 +313,7 @@
 	},
 	"unknown": {
 		"id": "unknown",
+		"iconPath": null,
 		"displayName": {
 			"ar-AE": "غير معروف",
 			"de-DE": "Unbekannt",
