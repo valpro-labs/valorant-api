@@ -5,7 +5,6 @@ import * as path from 'node:path';
 import {
   GameModeFallbackIds,
   type GameModeFallbackData,
-  type GameModeFallbackName,
 } from '../src/GameModeFallback';
 import type { ValorantLocale } from '../src/endpoints/BaseEndpoint';
 
@@ -84,11 +83,11 @@ async function run(): Promise<void> {
       }
 
       const entry: GameModeFallbackData = { id, displayName: data.displayName };
-      return [name, entry] as [GameModeFallbackName, GameModeFallbackData];
+      return [name, entry] as [string, GameModeFallbackData];
     }),
   );
 
-  const queues = Object.fromEntries(results) as Record<GameModeFallbackName, GameModeFallbackData>;
+  const queues = Object.fromEntries(results) as Record<string, GameModeFallbackData>;
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(queues, null, '\t') + '\n', 'utf8');
   console.log('Written to', OUTPUT_PATH);
 }
