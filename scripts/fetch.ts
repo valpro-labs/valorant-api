@@ -65,7 +65,7 @@ const EXTRA_QUEUE_DATA: Record<string, GameModeFallbackData> = {
   },
   newmap: {
     id: 'newmap',
-    iconPath: null,
+    iconPath: '5d0f264b-4ebe-cc63-c147-809e1374484b/displayicon.png',
     displayName: {
       'ar-AE': 'خريطة جديدة',
       'de-DE': 'Neue Karte',
