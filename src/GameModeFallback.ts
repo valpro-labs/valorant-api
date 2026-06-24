@@ -13,6 +13,7 @@ export type GameModeFallbackName =
   | 'skirmishascension2v2'
   | 'skirmishascension1v1'
   | 'ggteam'
+  | 'fortcollins'
   | 'dodgeball'
   | 'bot';
 
@@ -42,6 +43,7 @@ export const GameModeFallbackIds: Record<GameModeFallbackName, string> = {
   skirmishascension2v2: 'd08c45fe-4415-edcf-65a3-45885cc4349b',
   skirmishascension1v1: 'd08c45fe-4415-edcf-65a3-45885cc4349b',
   ggteam: 'a4ed6518-4741-6dcb-35bd-f884aecdc859',
+  fortcollins: '75b7b658-472c-0264-cbe6-049abf14f54b',
   dodgeball: '1a4a3fd5-4966-62cb-7fe4-15b0317f5c80',
   bot: 'd2d0f229-4514-517a-b10a-aaa0ef0d4a67',
 };
@@ -55,9 +57,10 @@ export const GameModeFallbackQueryableIds: GameModeFilterId[] = [
   'hurm',
   'spikerush',
   'ggteam',
+  'fortcollins',
   'valaram',
   'skirmish2v2',
-	'skirmishascension2v2',
+  'skirmishascension2v2',
   'skirmishascension1v1',
   'dodgeball',
   'custom',
