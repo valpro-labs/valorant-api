@@ -67,7 +67,7 @@ export const GameModeFallbackQueryableIds: GameModeFilterId[] = [
 ];
 
 export const GAME_MODE_FALLBACK_BASE_URL =
-  'https://raw.githubusercontent.com/valpro-labs/valorant-api/main/data';
+  'https://cdn.valprolabs.com/data';
 export const GAME_MODE_FALLBACK_URL =
   `${GAME_MODE_FALLBACK_BASE_URL}/queues.json`;
 export const GAME_MODE_FALLBACK_ICON_BASE_URL =
